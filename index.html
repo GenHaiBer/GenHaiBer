@@ -3,646 +3,296 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shred Planner | Fasted Cut Calculator</title>
+  <title>Haialt's Book Letters | Thoughtful Reading Notes & Newsletters</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #060912;
-      --card: #0d1324;
-      --card-2: #111a30;
-      --text: #f7fbff;
-      --muted: #b4c4db;
-      --accent: #71e0a3;
-      --accent-2: #62a8ff;
-      --border: rgba(255, 255, 255, 0.07);
-      --shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+      --bg: #07090f;
+      --panel: #0c111b;
+      --panel-2: #11182a;
+      --text: #f7f9fc;
+      --muted: #c1c8d7;
+      --accent: #8af0c8;
+      --accent-2: #7ca8ff;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: radial-gradient(circle at 15% 15%, rgba(113, 224, 163, 0.08), transparent 28%),
-                  radial-gradient(circle at 80% 0%, rgba(98, 168, 255, 0.12), transparent 30%),
-                  radial-gradient(circle at 50% 70%, rgba(255, 153, 102, 0.08), transparent 30%),
-                  var(--bg);
       color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(138, 240, 200, 0.08), transparent 32%),
+        radial-gradient(circle at 75% 8%, rgba(124, 168, 255, 0.1), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(255, 166, 122, 0.08), transparent 30%),
+        var(--bg);
       min-height: 100vh;
-      line-height: 1.6;
+      line-height: 1.7;
+      padding-bottom: 80px;
     }
 
     header {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 32px 24px 16px;
+      padding: 22px 24px 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
-      backdrop-filter: blur(10px);
-      background: rgba(6, 9, 18, 0.7);
+      backdrop-filter: blur(12px);
+      background: rgba(7, 9, 15, 0.8);
       border-bottom: 1px solid var(--border);
-      z-index: 5;
+      z-index: 6;
     }
 
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.5px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.3px; }
     .logo {
-      width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center;
+      width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #041018; box-shadow: var(--shadow);
+      color: #06101d; font-weight: 900; box-shadow: var(--shadow);
     }
-
-    nav a { color: var(--muted); margin-left: 16px; text-decoration: none; font-weight: 600; }
+    nav a { color: var(--muted); margin-left: 18px; text-decoration: none; font-weight: 700; }
     nav a:hover { color: var(--text); }
 
-    main { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
+    main { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
     .hero {
-      margin-top: 26px;
-      padding: 32px;
-      background: linear-gradient(135deg, rgba(98,168,255,0.08), rgba(113,224,163,0.06));
+      margin-top: 24px;
+      padding: 38px;
+      background: linear-gradient(135deg, rgba(124, 168, 255, 0.08), rgba(138, 240, 200, 0.08));
       border: 1px solid var(--border);
       border-radius: 28px;
       box-shadow: var(--shadow);
-    }
-
-    .hero h1 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 12px; }
-    .hero p { color: var(--muted); max-width: 900px; }
-
-    .pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.06); padding: 10px 14px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); font-weight: 700; }
-
-    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 18px;
     }
 
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--muted); font-weight: 700; }
+    h1 { font-size: clamp(32px, 5vw, 54px); font-family: 'Playfair Display', 'Inter', serif; line-height: 1.2; }
+    h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 10px; font-family: 'Playfair Display', 'Inter', serif; }
+    p.lead { color: var(--muted); max-width: 920px; font-size: 17px; }
+
+    .cta-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
+    .btn-primary {
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      color: #04101c;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+    .btn-ghost { padding: 14px 16px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,0.04); color: var(--text); font-weight: 700; text-decoration: none; }
+
+    section { margin-top: 40px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
     .card {
-      background: var(--card);
+      background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 18px 18px 20px;
       box-shadow: var(--shadow);
     }
 
-    .card h3 { margin-bottom: 8px; }
     .muted { color: var(--muted); }
-    .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+    .tag { display: inline-flex; gap: 8px; align-items: center; padding: 6px 10px; border-radius: 999px; background: rgba(138,240,200,0.12); color: var(--text); border: 1px solid rgba(138,240,200,0.3); font-weight: 700; font-size: 13px; }
 
-    form { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 16px; }
-    label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; }
-    input, select { padding: 12px 12px; border-radius: 12px; border: 1px solid var(--border); background: var(--card-2); color: var(--text); font-size: 15px; }
-    input:focus, select:focus { outline: 2px solid var(--accent-2); }
+    .book-card { display: grid; gap: 8px; background: var(--panel-2); }
+    .book-meta { display: flex; gap: 10px; align-items: center; color: var(--muted); font-size: 14px; }
+    .pill-stat { padding: 6px 10px; border-radius: 10px; background: rgba(124, 168, 255, 0.14); color: var(--text); border: 1px solid rgba(124, 168, 255, 0.35); font-weight: 700; font-size: 13px; }
 
-    button.primary {
-      padding: 14px 16px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      border: none;
-      color: #041018;
-      font-weight: 800;
-      border-radius: 14px;
-      cursor: pointer;
+    .why { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 12px; }
+    .reason { background: var(--panel-2); padding: 14px; border-radius: 14px; border: 1px solid var(--border); }
+
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+    .quote { background: var(--panel-2); border: 1px solid var(--border); padding: 16px; border-radius: 16px; }
+    .quote strong { display: block; margin-top: 8px; }
+
+    .subscribe {
+      margin-top: 16px;
+      background: linear-gradient(135deg, rgba(124, 168, 255, 0.12), rgba(138, 240, 200, 0.16));
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
       box-shadow: var(--shadow);
+      display: grid;
+      gap: 14px;
     }
+    form { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+    label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; }
+    input { padding: 12px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(7,9,15,0.35); color: var(--text); }
+    input:focus { outline: 2px solid var(--accent-2); }
 
-    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 14px; }
-    .stat { background: var(--card-2); border: 1px solid var(--border); border-radius: 14px; padding: 12px; }
-    .stat .label { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .stat .value { font-size: 22px; font-weight: 800; }
+    footer { max-width: 1200px; margin: 30px auto 0; padding: 0 24px 40px; color: var(--muted); text-align: center; }
 
-    .plan-day { background: var(--card-2); border: 1px solid var(--border); border-radius: 16px; padding: 14px; margin-top: 12px; }
-    .meal { margin-top: 8px; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,0.02); }
-    .meal ul { padding-left: 18px; margin-top: 6px; color: var(--muted); }
-
-    .badge { display: inline-flex; gap: 6px; align-items: center; padding: 6px 10px; border-radius: 999px; background: rgba(113,224,163,0.14); color: var(--text); font-weight: 700; border: 1px solid rgba(113,224,163,0.35); font-size: 13px; }
-
-    .grocery { margin-top: 8px; list-style: none; padding-left: 0; }
-    .grocery li { padding: 8px 10px; margin-top: 6px; border-radius: 10px; background: var(--card-2); border: 1px solid var(--border); color: var(--muted); }
-
-    details { border: 1px solid var(--border); padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.02); }
-    summary { cursor: pointer; font-weight: 700; }
-
-    @media (max-width: 640px) {
+    @media (max-width: 720px) {
       header { flex-direction: column; align-items: flex-start; gap: 10px; position: static; }
-      nav { width: 100%; display: flex; flex-wrap: wrap; gap: 10px; }
+      nav { display: flex; flex-wrap: wrap; gap: 10px; }
       nav a { margin-left: 0; }
+      .hero { padding: 28px; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="brand">
-      <div class="logo">SP</div>
+      <div class="logo">HB</div>
       <div>
-        <div>Shred Planner</div>
-        <small class="muted">Fast, safe, fasted-friendly fat loss</small>
+        <div style="font-weight:900;">Haialt's Book Letters</div>
+        <small class="muted">Field notes from a drug development engineer</small>
       </div>
     </div>
     <nav>
-      <a href="#calculator">Calculator</a>
-      <a href="#plan">7-day plan</a>
-      <a href="#adjust">Adjust</a>
+      <a href="#about">About</a>
+      <a href="#newsletter">Newsletter</a>
+      <a href="#books">Books</a>
+      <a href="#subscribe">Subscribe</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <div class="pill">Aggressive goal? Keep it smart.</div>
-      <h1>Generate your fasting-aware cut in seconds.</h1>
-      <p>
-        Enter your stats once. We’ll set a sane deficit, protein-first macros, a fasting window, and a full 7-day meal plan with grocery list. Includes a weekly auto-adjust rule so you can course-correct without guesswork.
+      <div class="eyebrow">Curated book notes • Researcher's perspective</div>
+      <h1>Hi, I'm Haialt — a master's student in engineering specializing in drug development and discovery. I share the ideas that sharpen my thinking and yours.</h1>
+      <p class="lead">
+        Every issue distills what I'm learning from books that span science, creativity, leadership, and human performance. You'll get clear takeaways, why the ideas matter for real-world problem solving, and how they apply to better habits, research rigor, and life design.
       </p>
+      <div class="cta-row">
+        <button class="btn-primary">Get the next letter</button>
+        <a class="btn-ghost" href="#newsletter">Browse recent issues</a>
+        <div class="tag">Trusted by curious minds who love actionable reading</div>
+      </div>
     </section>
 
-    <section id="calculator" style="margin-top:32px;">
+    <section id="about">
       <div class="card">
-        <div class="two-col" style="align-items:center; gap:10px;">
-          <div>
-            <h2>Inputs</h2>
-            <p class="muted">Default goal loss is 13 kg (what you asked). Adjust if needed.</p>
-          </div>
-          <div style="text-align:right; color: var(--muted); font-size:14px;">Uses Mifflin St Jeor + activity factor</div>
+        <h2>Why I write</h2>
+        <p class="muted">
+          In the lab and in life, clarity matters. As a student at Alund University focusing on drug development and discovery, I use reading to connect rigorous science with creative thinking. The newsletter is my open notebook: concise reflections, experiments worth trying, and the connections between research, design, and everyday decisions. I want every reader to leave with one idea they can test the same week.
+        </p>
+      </div>
+    </section>
+
+    <section id="newsletter">
+      <h2>Recent newsletters</h2>
+      <p class="muted" style="margin-bottom:12px;">Short, actionable, and designed for people who value depth over noise.</p>
+      <div class="grid">
+        <article class="card book-card">
+          <div class="pill-stat">Issue 14 · 6 min read</div>
+          <h3>Systems thinking from the lab bench</h3>
+          <p class="muted">How "Thinking in Systems" by Donella Meadows reframes experimental design, and how to use feedback loops to debug both research and routines.</p>
+          <div class="book-meta"><span class="tag">Takeaway</span>Build checks that trigger quick course-corrections.</div>
+        </article>
+        <article class="card book-card">
+          <div class="pill-stat">Issue 13 · 5 min read</div>
+          <h3>The creative scientist</h3>
+          <p class="muted">Notes from "Range" by David Epstein on why breadth fuels breakthroughs in drug discovery and why cross-disciplinary reading keeps curiosity alive.</p>
+          <div class="book-meta"><span class="tag">Why it matters</span>Connect distant ideas to unlock better hypotheses.</div>
+        </article>
+        <article class="card book-card">
+          <div class="pill-stat">Issue 12 · 7 min read</div>
+          <h3>Atomic habits for hard problems</h3>
+          <p class="muted">Practical ways to apply James Clear's compounding habits to research projects, from experiment logs to reflection rituals that prevent stagnation.</p>
+          <div class="book-meta"><span class="tag">Action</span>Small, daily behaviors that de-risk long-term goals.</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="books">
+      <h2>Featured book notes</h2>
+      <div class="grid">
+        <div class="card book-card">
+          <div class="pill-stat">Deep Dive</div>
+          <h3>"The Immortal Life of Henrietta Lacks"</h3>
+          <p class="muted">On ethics, consent, and the human stories behind breakthroughs. Why every researcher should read it to stay grounded in empathy.</p>
+          <div class="book-meta"><span class="tag">Lesson</span>Scientific progress is stronger when it honors people.</div>
         </div>
-        <form id="planner-form">
-          <label>Sex
-            <select name="sex" required>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-          </label>
-          <label>Age (years)
-            <input type="number" name="age" min="16" max="90" value="30" required />
-          </label>
-          <label>Height (cm)
-            <input type="number" name="height" min="120" max="230" value="175" required />
-          </label>
-          <label>Current weight (kg)
-            <input type="number" name="weight" min="40" max="200" value="93" required />
-          </label>
-          <label>Goal loss (kg)
-            <input type="number" name="goalLoss" min="2" max="40" value="13" />
-          </label>
-          <label>Target weight (kg, optional)
-            <input type="number" name="targetWeight" min="40" max="200" placeholder="auto if blank" />
-          </label>
-          <label>Meals per day
-            <select name="meals" required>
-              <option value="2">2 meals + snack</option>
-              <option value="3">3 meals</option>
-            </select>
-          </label>
-          <label>Activity
-            <select name="activity" required>
-              <option value="1.4">Light (1–2x training)</option>
-              <option value="1.55" selected>Moderate (3–5x training)</option>
-              <option value="1.75">High (6–7x training)</option>
-            </select>
-          </label>
-          <label>Fasting start
-            <input type="time" name="fastStart" value="12:00" required />
-          </label>
-          <label>Fasting end
-            <input type="time" name="fastEnd" value="20:00" required />
-          </label>
-          <div style="grid-column: 1 / -1; display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-            <button class="primary" type="submit">Generate plan</button>
-            <span class="muted">Deficit auto-capped to a safer 500–750 kcal/day (~0.5–1 kg/week).</span>
-          </div>
-        </form>
-      </div>
-
-      <div id="summary" style="margin-top:18px;" class="grid"></div>
-      <div id="macro-breakdown" class="stats"></div>
-    </section>
-
-    <section id="plan" style="margin-top:34px;">
-      <div class="card">
-        <div class="two-col" style="align-items:center; gap:10px;">
-          <div>
-            <h2>7-day fasting-friendly plan</h2>
-            <p class="muted">Meals land inside your window. Portions auto-scale to your calories and protein target.</p>
-          </div>
-          <div class="badge">Includes grocery list & cooking steps</div>
+        <div class="card book-card">
+          <div class="pill-stat">Momentum</div>
+          <h3>"Deep Work"</h3>
+          <p class="muted">Structuring focus blocks to learn faster, write clearer protocols, and make better decisions under uncertainty.</p>
+          <div class="book-meta"><span class="tag">Practice</span>Protect time for thinking; it compounds quietly.</div>
         </div>
-        <div id="plan-days"></div>
-      </div>
-
-      <div class="card" style="margin-top:16px;">
-        <h3>Grocery list (7 days)</h3>
-        <p class="muted">Quantities already scaled to your portions.</p>
-        <ul class="grocery" id="grocery"></ul>
+        <div class="card book-card">
+          <div class="pill-stat">Perspective</div>
+          <h3>"The Almanack of Naval Ravikant"</h3>
+          <p class="muted">A lens on leverage and long-termism. Why researchers should design systems that compound learning, not just outputs.</p>
+          <div class="book-meta"><span class="tag">Application</span>Pair curiosity with patience to build durable skills.</div>
+        </div>
       </div>
     </section>
 
-    <section id="adjust" style="margin-top:34px;">
+    <section>
       <div class="card">
-        <h2>Auto-adjust rule</h2>
-        <p class="muted">Use weekly average weight. Adjust slowly to stay fueled and lean.</p>
-        <form id="adjust-form" style="margin-top:12px;">
-          <label>Week start average (kg)
-            <input type="number" name="start" min="30" max="200" value="93" required />
-          </label>
-          <label>Current week average (kg)
-            <input type="number" name="current" min="30" max="200" value="92.2" required />
-          </label>
-          <label>Current calories (kcal/day)
-            <input type="number" name="calories" min="1000" max="4000" value="2300" required />
-          </label>
-          <div style="grid-column:1/-1; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-            <button class="primary" type="submit">Get adjustment</button>
-            <span class="muted">Rule: big drops → add 150 kcal; slow/flat → trim 100–150 kcal; on-pace → hold.</span>
+        <h2>Why subscribe</h2>
+        <div class="why">
+          <div class="reason">
+            <strong>Engineering clarity</strong>
+            <p class="muted">I translate complex ideas into simple visual frameworks so you can remember and reuse them.</p>
           </div>
-        </form>
-        <div id="adjust-output" style="margin-top:12px;" class="muted"></div>
+          <div class="reason">
+            <strong>Action-first notes</strong>
+            <p class="muted">Each issue ends with experiments to try, questions to ask, and prompts that fit into busy weeks.</p>
+          </div>
+          <div class="reason">
+            <strong>Researcher's rigor</strong>
+            <p class="muted">Expect citations, context, and a balanced take that respects nuance — no hype, just honest reflection.</p>
+          </div>
+          <div class="reason">
+            <strong>Community mindset</strong>
+            <p class="muted">Readers include students, builders, and scientists who value thoughtful conversation. You're in good company.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="card" style="margin-top:16px;">
-        <h3>Safety notes</h3>
-        <ul style="padding-left:18px; color: var(--muted);">
-          <li>Stop or slow down if dizziness, fainting, binge urges, insomnia, libido crash, or workout free-fall hits.</li>
-          <li>If you take glucose/heart meds or have eating-disorder history, talk to a clinician before fasting.</li>
-          <li>Sleep 7–9h, lift 3–4x/week, keep protein high (~2 g/kg target weight), and walk 8–12k steps.</li>
-        </ul>
+    <section>
+      <h2>What readers say</h2>
+      <div class="testimonials">
+        <div class="quote">
+          "Clear, concise, and surprisingly actionable. I always leave with one behavior to test that week."
+          <strong>— Lina, biomedical engineer</strong>
+        </div>
+        <div class="quote">
+          "Feels like having a study partner who highlights the most important lines. Perfect balance of science and storytelling."
+          <strong>— Omar, graduate researcher</strong>
+        </div>
+        <div class="quote">
+          "One of the few newsletters I actually read. The summaries are sharp, and the applications are realistic."
+          <strong>— Maren, product scientist</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="subscribe">
+      <div class="subscribe">
+        <div>
+          <div class="eyebrow" style="margin-bottom:8px;">Join the list</div>
+          <h2>Get the next letter in your inbox</h2>
+          <p class="muted">No spam, just thoughtful notes on books, experiments, and the mindsets that keep curiosity alive. You'll also receive occasional behind-the-scenes essays from my graduate journey.</p>
+        </div>
+        <form>
+          <label>Email
+            <input type="email" placeholder="you@example.com" required />
+          </label>
+          <label>Name
+            <input type="text" placeholder="Your name" />
+          </label>
+          <button class="btn-primary" type="submit" style="width:100%; max-width:220px;">Subscribe free</button>
+        </form>
       </div>
     </section>
   </main>
 
-  <script>
-    const mealTemplates = [
-      {
-        name: 'Chicken rice bowl',
-        baseCalories: 620,
-        protein: 55,
-        carbs: 68,
-        fat: 16,
-        ingredients: [
-          { item: 'Chicken breast', qty: 180, unit: 'g' },
-          { item: 'Cooked rice', qty: 250, unit: 'g' },
-          { item: 'Mixed veggies', qty: 150, unit: 'g' },
-          { item: 'Olive oil', qty: 8, unit: 'g' },
-          { item: 'Soy sauce', qty: 15, unit: 'ml' }
-        ],
-        steps: [
-          'Sauté chicken in olive oil with salt/pepper.',
-          'Add veggies until tender.',
-          'Serve over rice and splash soy sauce.'
-        ]
-      },
-      {
-        name: 'Salmon quinoa salad',
-        baseCalories: 650,
-        protein: 48,
-        carbs: 55,
-        fat: 25,
-        ingredients: [
-          { item: 'Salmon fillet', qty: 180, unit: 'g' },
-          { item: 'Cooked quinoa', qty: 220, unit: 'g' },
-          { item: 'Mixed greens', qty: 120, unit: 'g' },
-          { item: 'Cherry tomatoes', qty: 80, unit: 'g' },
-          { item: 'Olive oil', qty: 10, unit: 'g' },
-          { item: 'Lemon juice', qty: 15, unit: 'ml' }
-        ],
-        steps: [
-          'Bake or pan-sear salmon until flaky.',
-          'Toss quinoa, greens, and tomatoes with lemon + oil.',
-          'Top salad with salmon.'
-        ]
-      },
-      {
-        name: 'Turkey chili',
-        baseCalories: 640,
-        protein: 55,
-        carbs: 55,
-        fat: 18,
-        ingredients: [
-          { item: 'Lean ground turkey', qty: 200, unit: 'g' },
-          { item: 'Kidney beans', qty: 150, unit: 'g' },
-          { item: 'Tomato sauce', qty: 200, unit: 'g' },
-          { item: 'Onion + peppers', qty: 140, unit: 'g' },
-          { item: 'Olive oil', qty: 8, unit: 'g' },
-          { item: 'Spice mix', qty: 5, unit: 'g' }
-        ],
-        steps: [
-          'Brown turkey in oil with spices.',
-          'Add onion/peppers until soft.',
-          'Stir in beans + tomato, simmer 15 minutes.'
-        ]
-      },
-      {
-        name: 'Tuna wrap + salad',
-        baseCalories: 520,
-        protein: 48,
-        carbs: 50,
-        fat: 14,
-        ingredients: [
-          { item: 'Tuna (canned in water)', qty: 160, unit: 'g' },
-          { item: 'Whole-wheat wrap', qty: 1, unit: 'wrap' },
-          { item: 'Greek yogurt', qty: 80, unit: 'g' },
-          { item: 'Leafy greens', qty: 80, unit: 'g' },
-          { item: 'Cucumber + tomato', qty: 120, unit: 'g' }
-        ],
-        steps: [
-          'Mix tuna with yogurt and pepper.',
-          'Fill wrap with tuna and greens.',
-          'Serve with chopped cucumber + tomato salad.'
-        ]
-      },
-      {
-        name: 'Greek yogurt protein bowl',
-        baseCalories: 420,
-        protein: 40,
-        carbs: 48,
-        fat: 10,
-        ingredients: [
-          { item: 'Non-fat Greek yogurt', qty: 250, unit: 'g' },
-          { item: 'Whey or soy protein', qty: 30, unit: 'g' },
-          { item: 'Berries', qty: 120, unit: 'g' },
-          { item: 'Granola or oats', qty: 35, unit: 'g' },
-          { item: 'Honey', qty: 10, unit: 'g' }
-        ],
-        steps: [
-          'Stir protein powder into yogurt.',
-          'Top with berries, granola/oats, and honey.'
-        ]
-      },
-      {
-        name: 'Egg + veggie wrap',
-        baseCalories: 500,
-        protein: 36,
-        carbs: 48,
-        fat: 18,
-        ingredients: [
-          { item: 'Eggs', qty: 2, unit: 'whole' },
-          { item: 'Egg whites', qty: 120, unit: 'g' },
-          { item: 'Whole-wheat wrap', qty: 1, unit: 'wrap' },
-          { item: 'Spinach + peppers', qty: 120, unit: 'g' },
-          { item: 'Olive oil', qty: 6, unit: 'g' }
-        ],
-        steps: [
-          'Scramble eggs/whites with spinach and peppers in oil.',
-          'Wrap and serve.'
-        ]
-      },
-      {
-        name: 'Lentil curry (veg)',
-        baseCalories: 560,
-        protein: 32,
-        carbs: 82,
-        fat: 12,
-        ingredients: [
-          { item: 'Dry lentils', qty: 100, unit: 'g' },
-          { item: 'Coconut milk (light)', qty: 120, unit: 'g' },
-          { item: 'Tomato + onion', qty: 160, unit: 'g' },
-          { item: 'Rice', qty: 150, unit: 'g' },
-          { item: 'Curry spice', qty: 6, unit: 'g' }
-        ],
-        steps: [
-          'Simmer lentils with tomato, onion, curry, and coconut milk.',
-          'Serve over rice.'
-        ]
-      },
-      {
-        name: 'Tofu stir-fry (veg)',
-        baseCalories: 540,
-        protein: 34,
-        carbs: 58,
-        fat: 18,
-        ingredients: [
-          { item: 'Firm tofu', qty: 200, unit: 'g' },
-          { item: 'Rice noodles or rice', qty: 160, unit: 'g' },
-          { item: 'Stir-fry veggies', qty: 180, unit: 'g' },
-          { item: 'Soy sauce', qty: 15, unit: 'ml' },
-          { item: 'Sesame oil', qty: 8, unit: 'g' }
-        ],
-        steps: [
-          'Crisp tofu in sesame oil.',
-          'Add veggies and soy sauce.',
-          'Serve over noodles or rice.'
-        ]
-      }
-    ];
-
-    const snackTemplate = {
-      name: 'Protein shake or cottage cheese',
-      baseCalories: 180,
-      protein: 28,
-      carbs: 8,
-      fat: 3,
-      ingredients: [
-        { item: 'Protein powder', qty: 30, unit: 'g' },
-        { item: 'Milk or water', qty: 240, unit: 'ml' },
-        { item: 'Optional fruit', qty: 80, unit: 'g' }
-      ],
-      steps: ['Blend and sip. Swap for cottage cheese + fruit if desired.']
-    };
-
-    const form = document.getElementById('planner-form');
-    const summaryEl = document.getElementById('summary');
-    const macroEl = document.getElementById('macro-breakdown');
-    const planEl = document.getElementById('plan-days');
-    const groceryEl = document.getElementById('grocery');
-    const adjustForm = document.getElementById('adjust-form');
-    const adjustOutput = document.getElementById('adjust-output');
-
-    function parseTimeToMinutes(timeStr) {
-      const [h, m] = timeStr.split(':').map(Number);
-      return h * 60 + m;
-    }
-
-    function minutesToTime(mins) {
-      const h = Math.floor(mins / 60) % 24;
-      const m = mins % 60;
-      return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
-    }
-
-    function clamp(value, min, max) { return Math.min(Math.max(value, min), max); }
-
-    function calcNumbers(data) {
-      const { sex, age, height, weight, targetWeight, activity } = data;
-      const baseTargetWeight = targetWeight > 0 ? targetWeight : weight - (data.goalLoss || 0);
-      const finalTargetWeight = Math.max(40, Math.min(weight, baseTargetWeight || weight));
-
-      const bmr = sex === 'male'
-        ? 10 * weight + 6.25 * height - 5 * age + 5
-        : 10 * weight + 6.25 * height - 5 * age - 161;
-      const tdee = bmr * activity;
-
-      const deficitPct = 0.2;
-      let targetCalories = tdee * (1 - deficitPct);
-      const maxCut = 750;
-      const minCut = 500;
-      if (tdee - targetCalories > maxCut) targetCalories = tdee - maxCut;
-      if (tdee - targetCalories < minCut) targetCalories = tdee - minCut;
-      const minCalories = sex === 'female' ? 1200 : 1400;
-      targetCalories = Math.max(minCalories, targetCalories);
-
-      const protein = finalTargetWeight * 2.0;
-      const proteinCals = protein * 4;
-      const remainingCals = Math.max(targetCalories - proteinCals, targetCalories * 0.3);
-      const carbs = (remainingCals * 0.45) / 4;
-      const fat = (remainingCals * 0.25) / 9;
-
-      return {
-        bmr: Math.round(bmr),
-        tdee: Math.round(tdee),
-        calories: Math.round(targetCalories),
-        deficit: Math.round(tdee - targetCalories),
-        protein: Math.round(protein),
-        carbs: Math.round(carbs),
-        fat: Math.round(fat),
-        targetWeight: Math.round(finalTargetWeight * 10) / 10
-      };
-    }
-
-    function formatNumber(n) { return n.toLocaleString(undefined, { maximumFractionDigits: 1 }); }
-
-    function buildSummary(nums) {
-      summaryEl.innerHTML = `
-        <div class="card">
-          <h3>Baseline</h3>
-          <p class="muted">BMR and TDEE based on your stats + activity.</p>
-          <div class="stats">
-            <div class="stat"><div class="label">BMR</div><div class="value">${formatNumber(nums.bmr)} kcal</div></div>
-            <div class="stat"><div class="label">TDEE</div><div class="value">${formatNumber(nums.tdee)} kcal</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Deficit</h3>
-          <p class="muted">Auto-capped to ~500–750 kcal/day for ~0.5–1 kg/week.</p>
-          <div class="stats">
-            <div class="stat"><div class="label">Target cals</div><div class="value">${formatNumber(nums.calories)} kcal</div></div>
-            <div class="stat"><div class="label">Daily deficit</div><div class="value">${formatNumber(nums.deficit)} kcal</div></div>
-            <div class="stat"><div class="label">Target weight</div><div class="value">${formatNumber(nums.targetWeight)} kg</div></div>
-          </div>
-        </div>`;
-
-      macroEl.innerHTML = `
-        <div class="stat"><div class="label">Protein</div><div class="value">${formatNumber(nums.protein)} g</div></div>
-        <div class="stat"><div class="label">Carbs</div><div class="value">${formatNumber(nums.carbs)} g</div></div>
-        <div class="stat"><div class="label">Fat</div><div class="value">${formatNumber(nums.fat)} g</div></div>
-      `;
-    }
-
-    function pickMeals(day, mealsPerDay) {
-      const rotation = [0, 1, 2, 3, 4, 5, 6, 7];
-      const first = mealTemplates[rotation[day % rotation.length]];
-      const second = mealTemplates[(day + 2) % mealTemplates.length];
-      const third = mealTemplates[(day + 4) % mealTemplates.length];
-      if (mealsPerDay === 2) {
-        return [first, second, snackTemplate];
-      }
-      return [first, second, third];
-    }
-
-    function scaleIngredients(ingredients, factor) {
-      return ingredients.map(i => ({ ...i, qty: Math.round(i.qty * factor * 10) / 10 }));
-    }
-
-    function addToGrocery(map, ingredients) {
-      ingredients.forEach(({ item, qty, unit }) => {
-        const key = `${item}__${unit}`;
-        map[key] = map[key] || { item, unit, qty: 0 };
-        map[key].qty += qty;
-      });
-    }
-
-    function renderPlan(nums, data) {
-      planEl.innerHTML = '';
-      groceryEl.innerHTML = '';
-      const groceryMap = {};
-      const mealsPerDay = Number(data.meals);
-      const fastingStart = parseTimeToMinutes(data.fastStart);
-      const fastingEnd = parseTimeToMinutes(data.fastEnd);
-      const windowMinutes = ((fastingEnd - fastingStart) + 1440) % 1440 || 1440;
-      const slots = mealsPerDay === 2 ? 2 : 3;
-      const gap = slots > 1 ? Math.floor(windowMinutes / (slots - 1)) : 0;
-
-      for (let day = 0; day < 7; day++) {
-        const meals = pickMeals(day, mealsPerDay);
-        const dailyCalories = nums.calories;
-        const perMealTargets = meals.map((m, idx) => {
-          if (mealsPerDay === 2 && m === snackTemplate) return dailyCalories * 0.1;
-          if (mealsPerDay === 2) return dailyCalories * 0.45;
-          return idx === 0 ? dailyCalories * 0.35 : idx === 1 ? dailyCalories * 0.35 : dailyCalories * 0.3;
-        });
-
-        let content = `<div class="plan-day"><div style="display:flex; justify-content:space-between; align-items:center;"><h3>Day ${day + 1}</h3><span class="badge">Fasting window ${data.fastStart}–${data.fastEnd}</span></div>`;
-
-        meals.forEach((meal, idx) => {
-          const time = minutesToTime((fastingStart + gap * idx) % 1440);
-          const factor = perMealTargets[idx] / meal.baseCalories;
-          const ingredients = scaleIngredients(meal.ingredients, factor);
-          addToGrocery(groceryMap, ingredients);
-          content += `
-            <div class="meal">
-              <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-                <strong>${time} — ${meal.name}</strong>
-                <span class="muted">~${Math.round(perMealTargets[idx])} kcal · Protein ${Math.round(meal.protein * factor)} g</span>
-              </div>
-              <div class="muted" style="margin-top:4px;">Portions scaled by ${factor.toFixed(2)}x</div>
-              <details style="margin-top:6px;">
-                <summary>Ingredients</summary>
-                <ul>
-                  ${ingredients.map(i => `<li>${i.item}: ${formatNumber(i.qty)} ${i.unit}</li>`).join('')}
-                </ul>
-              </details>
-              <details style="margin-top:6px;">
-                <summary>Steps</summary>
-                <ul>
-                  ${meal.steps.map(step => `<li>${step}</li>`).join('')}
-                </ul>
-              </details>
-            </div>`;
-        });
-
-        content += '</div>';
-        planEl.insertAdjacentHTML('beforeend', content);
-      }
-
-      Object.values(groceryMap)
-        .sort((a, b) => a.item.localeCompare(b.item))
-        .forEach(entry => {
-          groceryEl.insertAdjacentHTML('beforeend', `<li><strong>${entry.item}</strong>: ${formatNumber(Math.round(entry.qty * 10) / 10)} ${entry.unit}</li>`);
-        });
-    }
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-      ['age', 'height', 'weight', 'goalLoss', 'targetWeight', 'meals', 'activity'].forEach(key => {
-        data[key] = Number(data[key]);
-      });
-      const nums = calcNumbers(data);
-      buildSummary(nums);
-      renderPlan(nums, data);
-    });
-
-    adjustForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const formData = new FormData(adjustForm);
-      const start = Number(formData.get('start'));
-      const current = Number(formData.get('current'));
-      const calories = Number(formData.get('calories'));
-      const delta = start - current;
-      let message = '';
-
-      if (delta >= 1) {
-        message = `You dropped ${delta.toFixed(1)} kg this week. Add ~150 kcal/day and keep protein high to protect muscle.`;
-      } else if (delta <= 0.25) {
-        message = `Loss is flat/slow (${delta.toFixed(1)} kg). Trim 100–150 kcal/day or add 2k steps. Recheck in 7 days.`;
-      } else {
-        message = `On-pace loss (${delta.toFixed(1)} kg). Hold calories at ~${calories} and stay consistent.`;
-      }
-
-      adjustOutput.textContent = message;
-    });
-
-    // Kick off with defaults
-    form.dispatchEvent(new Event('submit'));
-  </script>
+  <footer>
+    Crafted with care by Haialt. Let's read, think, and build better together.
+  </footer>
 </body>
 </html>
