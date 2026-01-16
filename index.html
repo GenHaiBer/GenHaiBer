@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Haialt's Book Letters | Thoughtful Reading Notes & Newsletters</title>
+  <title>ReadFlow Studio | Multisensory Reading & Language Companion</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #07090f;
-      --panel: #0c111b;
-      --panel-2: #11182a;
-      --text: #f7f9fc;
-      --muted: #c1c8d7;
-      --accent: #8af0c8;
-      --accent-2: #7ca8ff;
+      --panel: #0e1422;
+      --panel-2: #141c30;
+      --panel-3: #1a2340;
+      --text: #f8fafc;
+      --muted: #c3cad9;
+      --accent: #8ff1c6;
+      --accent-2: #7ea6ff;
+      --accent-3: #ffb089;
       --border: rgba(255, 255, 255, 0.08);
       --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
     }
@@ -23,12 +25,12 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 15% 20%, rgba(138, 240, 200, 0.08), transparent 32%),
-        radial-gradient(circle at 75% 8%, rgba(124, 168, 255, 0.1), transparent 30%),
-        radial-gradient(circle at 50% 80%, rgba(255, 166, 122, 0.08), transparent 30%),
+        radial-gradient(circle at 10% 10%, rgba(143, 241, 198, 0.1), transparent 40%),
+        radial-gradient(circle at 85% 12%, rgba(126, 166, 255, 0.12), transparent 35%),
+        radial-gradient(circle at 60% 90%, rgba(255, 176, 137, 0.1), transparent 40%),
         var(--bg);
       min-height: 100vh;
       line-height: 1.7;
@@ -44,17 +46,17 @@
       justify-content: space-between;
       position: sticky;
       top: 0;
-      backdrop-filter: blur(12px);
-      background: rgba(7, 9, 15, 0.8);
+      backdrop-filter: blur(14px);
+      background: rgba(7, 9, 15, 0.85);
       border-bottom: 1px solid var(--border);
       z-index: 6;
     }
 
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.3px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.2px; }
     .logo {
-      width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center;
+      width: 50px; height: 50px; border-radius: 16px; display: grid; place-items: center;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #06101d; font-weight: 900; box-shadow: var(--shadow);
+      color: #07101d; font-weight: 900; box-shadow: var(--shadow);
     }
     nav a { color: var(--muted); margin-left: 18px; text-decoration: none; font-weight: 700; }
     nav a:hover { color: var(--text); }
@@ -62,20 +64,21 @@
     main { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
     .hero {
-      margin-top: 24px;
-      padding: 38px;
-      background: linear-gradient(135deg, rgba(124, 168, 255, 0.08), rgba(138, 240, 200, 0.08));
+      margin-top: 28px;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(126, 166, 255, 0.1), rgba(143, 241, 198, 0.12));
       border: 1px solid var(--border);
-      border-radius: 28px;
+      border-radius: 30px;
       box-shadow: var(--shadow);
       display: grid;
       gap: 18px;
     }
 
     .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--muted); font-weight: 700; }
-    h1 { font-size: clamp(32px, 5vw, 54px); font-family: 'Playfair Display', 'Inter', serif; line-height: 1.2; }
-    h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 10px; font-family: 'Playfair Display', 'Inter', serif; }
-    p.lead { color: var(--muted); max-width: 920px; font-size: 17px; }
+    h1 { font-size: clamp(32px, 5vw, 54px); font-family: 'Playfair Display', serif; line-height: 1.2; }
+    h2 { font-size: clamp(24px, 3vw, 34px); margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+    h3 { font-size: 20px; margin-bottom: 6px; }
+    p.lead { color: var(--muted); max-width: 900px; font-size: 17px; }
 
     .cta-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
     .btn-primary {
@@ -84,7 +87,7 @@
       border: none;
       background: linear-gradient(120deg, var(--accent), var(--accent-2));
       color: #04101c;
-      font-weight: 900;
+      font-weight: 800;
       cursor: pointer;
       box-shadow: var(--shadow);
     }
@@ -102,22 +105,87 @@
     }
 
     .muted { color: var(--muted); }
-    .tag { display: inline-flex; gap: 8px; align-items: center; padding: 6px 10px; border-radius: 999px; background: rgba(138,240,200,0.12); color: var(--text); border: 1px solid rgba(138,240,200,0.3); font-weight: 700; font-size: 13px; }
+    .tag { display: inline-flex; gap: 8px; align-items: center; padding: 6px 10px; border-radius: 999px; background: rgba(143,241,198,0.12); color: var(--text); border: 1px solid rgba(143,241,198,0.3); font-weight: 700; font-size: 13px; }
 
-    .book-card { display: grid; gap: 8px; background: var(--panel-2); }
-    .book-meta { display: flex; gap: 10px; align-items: center; color: var(--muted); font-size: 14px; }
-    .pill-stat { padding: 6px 10px; border-radius: 10px; background: rgba(124, 168, 255, 0.14); color: var(--text); border: 1px solid rgba(124, 168, 255, 0.35); font-weight: 700; font-size: 13px; }
+    .studio {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 18px;
+    }
 
-    .why { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 12px; }
-    .reason { background: var(--panel-2); padding: 14px; border-radius: 14px; border: 1px solid var(--border); }
+    .reader-panel {
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      display: grid;
+      gap: 16px;
+    }
 
-    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
-    .quote { background: var(--panel-2); border: 1px solid var(--border); padding: 16px; border-radius: 16px; }
-    .quote strong { display: block; margin-top: 8px; }
+    .drop-zone {
+      border: 1px dashed rgba(255, 255, 255, 0.25);
+      border-radius: 16px;
+      padding: 18px;
+      display: grid;
+      gap: 8px;
+      background: rgba(7, 9, 15, 0.35);
+    }
+
+    .reader-text {
+      background: rgba(7, 9, 15, 0.4);
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      font-size: 16px;
+    }
+
+    .highlight {
+      background: rgba(255, 176, 137, 0.22);
+      padding: 2px 6px;
+      border-radius: 8px;
+    }
+
+    .tool-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tool-btn {
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .insights {
+      background: var(--panel-3);
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      display: grid;
+      gap: 10px;
+    }
+
+    .pill-stat { padding: 6px 10px; border-radius: 10px; background: rgba(126, 166, 255, 0.14); color: var(--text); border: 1px solid rgba(126, 166, 255, 0.35); font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
+
+    .mode-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .mode-card { background: var(--panel-2); border: 1px solid var(--border); border-radius: 16px; padding: 16px; display: grid; gap: 8px; }
+
+    .color-toggle {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .color-swatch {
+      width: 36px; height: 36px; border-radius: 12px; border: 2px solid transparent; cursor: pointer; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: #0b101a;
+    }
+    .color-swatch.active { border-color: #fff; }
+
+    .music-panel { background: rgba(7, 9, 15, 0.4); border-radius: 14px; padding: 16px; border: 1px solid var(--border); display: grid; gap: 10px; }
+
+    .startup { display: grid; gap: 14px; }
+    .startup .card { background: linear-gradient(135deg, rgba(126, 166, 255, 0.14), rgba(143, 241, 198, 0.16)); }
 
     .subscribe {
       margin-top: 16px;
-      background: linear-gradient(135deg, rgba(124, 168, 255, 0.12), rgba(138, 240, 200, 0.16));
+      background: linear-gradient(135deg, rgba(126, 166, 255, 0.12), rgba(143, 241, 198, 0.16));
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 24px;
@@ -125,12 +193,17 @@
       display: grid;
       gap: 14px;
     }
-    form { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+    form { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
     label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; }
-    input { padding: 12px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(7,9,15,0.35); color: var(--text); }
-    input:focus { outline: 2px solid var(--accent-2); }
+    input, select, textarea { padding: 12px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(7,9,15,0.35); color: var(--text); font-family: inherit; }
+    input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent-2); }
+    textarea { min-height: 110px; resize: vertical; }
 
     footer { max-width: 1200px; margin: 30px auto 0; padding: 0 24px 40px; color: var(--muted); text-align: center; }
+
+    @media (max-width: 960px) {
+      .studio { grid-template-columns: 1fr; }
+    }
 
     @media (max-width: 720px) {
       header { flex-direction: column; align-items: flex-start; gap: 10px; position: static; }
@@ -143,156 +216,288 @@
 <body>
   <header>
     <div class="brand">
-      <div class="logo">HB</div>
+      <div class="logo">RF</div>
       <div>
-        <div style="font-weight:900;">Haialt's Book Letters</div>
-        <small class="muted">Field notes from a drug development engineer</small>
+        <div style="font-weight:900;">ReadFlow Studio</div>
+        <small class="muted">Multisensory reading for every language & learning style</small>
       </div>
     </div>
     <nav>
-      <a href="#about">About</a>
-      <a href="#newsletter">Newsletter</a>
-      <a href="#books">Books</a>
+      <a href="#vision">Vision</a>
+      <a href="#studio">Studio</a>
+      <a href="#modes">Modes</a>
+      <a href="#startup">Startup</a>
       <a href="#subscribe">Subscribe</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="eyebrow">Curated book notes • Researcher's perspective</div>
-      <h1>Hi, I'm Haialt — a master's student in engineering specializing in drug development and discovery. I share the ideas that sharpen my thinking and yours.</h1>
+    <section class="hero" id="vision">
+      <div class="eyebrow">Accessible reading • Audio focus • Language bridge</div>
+      <h1>A reading experience for people who struggle with text — with instant translations, calming soundscapes, and smart notes.</h1>
       <p class="lead">
-        Every issue distills what I'm learning from books that span science, creativity, leadership, and human performance. You'll get clear takeaways, why the ideas matter for real-world problem solving, and how they apply to better habits, research rigor, and life design.
+        ReadFlow Studio turns any PDF or book into a guided reading space. Readers can hear the text while reading, tap to reveal three helpful words, capture beautiful notes, and switch to scientifically supported color modes that reduce eye strain. Built for English plus every language your community needs.
       </p>
       <div class="cta-row">
-        <button class="btn-primary">Get the next letter</button>
-        <a class="btn-ghost" href="#newsletter">Browse recent issues</a>
-        <div class="tag">Trusted by curious minds who love actionable reading</div>
+        <button class="btn-primary" type="button">Start a free reading room</button>
+        <a class="btn-ghost" href="#studio">Explore the interactive demo</a>
+        <div class="tag">Designed for dyslexia-friendly, focus-first reading</div>
       </div>
     </section>
 
-    <section id="about">
+    <section>
+      <div class="grid">
+        <div class="card">
+          <h2>Your vision in one sentence</h2>
+          <p class="muted">"Let every reader drop in a book, instantly understand it in their language, and read it with sound, structure, and confidence."</p>
+          <div class="pill-stat">✓ Audio + visual sync</div>
+        </div>
+        <div class="card">
+          <h2>What makes it different</h2>
+          <ul class="muted" style="display:grid; gap:8px; padding-left:18px;">
+            <li>Tap any paragraph to surface three context words.</li>
+            <li>Translate sentences on demand, not the whole page.</li>
+            <li>Keep notes that become flashcards and summaries.</li>
+            <li>Adjust background, font, and rhythm for focus.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Built for real people</h2>
+          <p class="muted">From dyslexia-friendly modes to multilingual audio, ReadFlow Studio is the safe reading space students, parents, and lifelong learners have always needed.</p>
+          <div class="pill-stat">Accessibility-first</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="studio">
+      <h2>Interactive reading studio</h2>
+      <p class="muted" style="margin-bottom:12px;">Click around to see how a reader uploads a book, highlights a sentence, and gets three powerful words instantly.</p>
+      <div class="studio">
+        <div class="reader-panel">
+          <div class="drop-zone">
+            <strong>Upload a PDF or eBook</strong>
+            <span class="muted">Drop your file here or browse from your device.</span>
+            <input type="file" accept=".pdf,.epub" aria-label="Upload a book" />
+          </div>
+
+          <div class="reader-text" id="readerText">
+            <p>
+              <span class="highlight">"When the rain stops,</span> Aiko finally opens the book she has been carrying all week. She reads one sentence at a time, hearing the narration through her headphones while soft shamisen music plays in the background."
+            </p>
+          </div>
+
+          <div class="tool-row">
+            <button class="tool-btn" type="button" id="wordBtn">Show 3 helpful words</button>
+            <button class="tool-btn" type="button" id="translateBtn">Translate sentence</button>
+            <button class="tool-btn" type="button" id="noteBtn">Save note</button>
+          </div>
+
+          <div class="insights" id="insightsPanel">
+            <div class="pill-stat">Live insights</div>
+            <p class="muted">Tap a tool to see contextual vocabulary, translations, and saved notes appear here.</p>
+          </div>
+        </div>
+
+        <div class="reader-panel">
+          <div>
+            <div class="pill-stat">Listening mode</div>
+            <p class="muted">Sync narration with text and keep calm music underneath. Readers can slow the voice, loop lines, or switch to their native language.</p>
+          </div>
+
+          <div class="music-panel">
+            <strong>Ambient focus soundtrack</strong>
+            <div class="tool-row">
+              <button class="tool-btn" type="button" data-track="Kyoto Rain">Kyoto Rain</button>
+              <button class="tool-btn" type="button" data-track="Ocean Waves">Ocean Waves</button>
+              <button class="tool-btn" type="button" data-track="Study Lo-Fi">Study Lo-Fi</button>
+            </div>
+            <div class="muted" id="trackStatus">Now playing: Kyoto Rain</div>
+            <label>
+              Narration speed
+              <input type="range" min="0.75" max="1.5" step="0.05" value="1" />
+            </label>
+          </div>
+
+          <div class="insights">
+            <div class="pill-stat">Language bridge</div>
+            <label>
+              Reading language
+              <select>
+                <option>English (US)</option>
+                <option>Arabic</option>
+                <option>French</option>
+                <option>Japanese</option>
+                <option>Somali</option>
+                <option>Spanish</option>
+              </select>
+            </label>
+            <label>
+              Translation language
+              <select>
+                <option>Arabic</option>
+                <option>French</option>
+                <option>Japanese</option>
+                <option>Somali</option>
+                <option>Spanish</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="modes">
+      <h2>Scientifically supported reading modes</h2>
+      <p class="muted" style="margin-bottom:12px;">Readers switch to modes proven to reduce visual stress, boost focus, and help neurodivergent readers stay engaged.</p>
+      <div class="mode-grid">
+        <div class="mode-card">
+          <strong>Soft Contrast</strong>
+          <p class="muted">Warm background with lower contrast for gentle reading.</p>
+          <div class="color-toggle" data-mode="soft">
+            <div class="color-swatch" style="background:#f7f1e8;">Aa</div>
+            <div class="color-swatch" style="background:#fbe9f3;">Aa</div>
+            <div class="color-swatch" style="background:#eff6ff;">Aa</div>
+          </div>
+        </div>
+        <div class="mode-card">
+          <strong>Focus Spotlight</strong>
+          <p class="muted">Dim the page and keep only the current line bright.</p>
+          <div class="pill-stat">Line-by-line</div>
+        </div>
+        <div class="mode-card">
+          <strong>Dyslexia Assist</strong>
+          <p class="muted">Extra spacing, bolder letters, and steady rhythm cues.</p>
+          <div class="pill-stat">Eye-tracking friendly</div>
+        </div>
+        <div class="mode-card">
+          <strong>Night Listening</strong>
+          <p class="muted">Dark mode with low-brightness audio-only view.</p>
+          <div class="pill-stat">Sleep-safe</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
       <div class="card">
-        <h2>Why I write</h2>
+        <h2>Three pillars that make it a true startup</h2>
+        <div class="grid" style="margin-top:12px;">
+          <div class="card" style="background: var(--panel-2);">
+            <h3>1. Reader intelligence engine</h3>
+            <p class="muted">AI highlights the three most important words, explains them, and learns what the reader already knows.</p>
+          </div>
+          <div class="card" style="background: var(--panel-2);">
+            <h3>2. Multilingual audio layer</h3>
+            <p class="muted">Instant narration in any language with accent-friendly voices and adjustable pacing.</p>
+          </div>
+          <div class="card" style="background: var(--panel-2);">
+            <h3>3. Creator marketplace (the Audible-sized idea)</h3>
+            <p class="muted">Let educators and translators sell "reading rooms" with synced audio, notes, and playlists — like Audible meets Notion for study guides.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="startup" class="startup">
+      <h2>The next big idea to make it a startup</h2>
+      <div class="card">
+        <h3>Community-powered comprehension</h3>
         <p class="muted">
-          In the lab and in life, clarity matters. As a student at Alund University focusing on drug development and discovery, I use reading to connect rigorous science with creative thinking. The newsletter is my open notebook: concise reflections, experiments worth trying, and the connections between research, design, and everyday decisions. I want every reader to leave with one idea they can test the same week.
+          Launch a "ReadFlow Circles" subscription: schools and communities subscribe for shared reading rooms, built-in translation support, and collaborative note spaces. Each circle unlocks verified tutors, multilingual voice packs, and curated playlists. This creates a recurring revenue engine with high retention and makes ReadFlow Studio the trusted platform for inclusive reading.
         </p>
-      </div>
-    </section>
-
-    <section id="newsletter">
-      <h2>Recent newsletters</h2>
-      <p class="muted" style="margin-bottom:12px;">Short, actionable, and designed for people who value depth over noise.</p>
-      <div class="grid">
-        <article class="card book-card">
-          <div class="pill-stat">Issue 14 · 6 min read</div>
-          <h3>Systems thinking from the lab bench</h3>
-          <p class="muted">How "Thinking in Systems" by Donella Meadows reframes experimental design, and how to use feedback loops to debug both research and routines.</p>
-          <div class="book-meta"><span class="tag">Takeaway</span>Build checks that trigger quick course-corrections.</div>
-        </article>
-        <article class="card book-card">
-          <div class="pill-stat">Issue 13 · 5 min read</div>
-          <h3>The creative scientist</h3>
-          <p class="muted">Notes from "Range" by David Epstein on why breadth fuels breakthroughs in drug discovery and why cross-disciplinary reading keeps curiosity alive.</p>
-          <div class="book-meta"><span class="tag">Why it matters</span>Connect distant ideas to unlock better hypotheses.</div>
-        </article>
-        <article class="card book-card">
-          <div class="pill-stat">Issue 12 · 7 min read</div>
-          <h3>Atomic habits for hard problems</h3>
-          <p class="muted">Practical ways to apply James Clear's compounding habits to research projects, from experiment logs to reflection rituals that prevent stagnation.</p>
-          <div class="book-meta"><span class="tag">Action</span>Small, daily behaviors that de-risk long-term goals.</div>
-        </article>
-      </div>
-    </section>
-
-    <section id="books">
-      <h2>Featured book notes</h2>
-      <div class="grid">
-        <div class="card book-card">
-          <div class="pill-stat">Deep Dive</div>
-          <h3>"The Immortal Life of Henrietta Lacks"</h3>
-          <p class="muted">On ethics, consent, and the human stories behind breakthroughs. Why every researcher should read it to stay grounded in empathy.</p>
-          <div class="book-meta"><span class="tag">Lesson</span>Scientific progress is stronger when it honors people.</div>
-        </div>
-        <div class="card book-card">
-          <div class="pill-stat">Momentum</div>
-          <h3>"Deep Work"</h3>
-          <p class="muted">Structuring focus blocks to learn faster, write clearer protocols, and make better decisions under uncertainty.</p>
-          <div class="book-meta"><span class="tag">Practice</span>Protect time for thinking; it compounds quietly.</div>
-        </div>
-        <div class="card book-card">
-          <div class="pill-stat">Perspective</div>
-          <h3>"The Almanack of Naval Ravikant"</h3>
-          <p class="muted">A lens on leverage and long-termism. Why researchers should design systems that compound learning, not just outputs.</p>
-          <div class="book-meta"><span class="tag">Application</span>Pair curiosity with patience to build durable skills.</div>
-        </div>
+        <div class="pill-stat">B2B + B2C growth loop</div>
       </div>
     </section>
 
     <section>
       <div class="card">
-        <h2>Why subscribe</h2>
-        <div class="why">
-          <div class="reason">
-            <strong>Engineering clarity</strong>
-            <p class="muted">I translate complex ideas into simple visual frameworks so you can remember and reuse them.</p>
-          </div>
-          <div class="reason">
-            <strong>Action-first notes</strong>
-            <p class="muted">Each issue ends with experiments to try, questions to ask, and prompts that fit into busy weeks.</p>
-          </div>
-          <div class="reason">
-            <strong>Researcher's rigor</strong>
-            <p class="muted">Expect citations, context, and a balanced take that respects nuance — no hype, just honest reflection.</p>
-          </div>
-          <div class="reason">
-            <strong>Community mindset</strong>
-            <p class="muted">Readers include students, builders, and scientists who value thoughtful conversation. You're in good company.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>What readers say</h2>
-      <div class="testimonials">
-        <div class="quote">
-          "Clear, concise, and surprisingly actionable. I always leave with one behavior to test that week."
-          <strong>— Lina, biomedical engineer</strong>
-        </div>
-        <div class="quote">
-          "Feels like having a study partner who highlights the most important lines. Perfect balance of science and storytelling."
-          <strong>— Omar, graduate researcher</strong>
-        </div>
-        <div class="quote">
-          "One of the few newsletters I actually read. The summaries are sharp, and the applications are realistic."
-          <strong>— Maren, product scientist</strong>
-        </div>
+        <h2>Next steps to bring the vision to life</h2>
+        <ol class="muted" style="display:grid; gap:8px; padding-left:18px;">
+          <li>Validate with 10 readers who struggle with text, capture their biggest friction points.</li>
+          <li>Build the MVP: PDF upload, audio sync, and the three-word helper tool.</li>
+          <li>Launch a waitlist for schools, parents, and language learners.</li>
+          <li>Add the creator marketplace and premium focus modes.</li>
+        </ol>
       </div>
     </section>
 
     <section id="subscribe">
       <div class="subscribe">
         <div>
-          <div class="eyebrow" style="margin-bottom:8px;">Join the list</div>
-          <h2>Get the next letter in your inbox</h2>
-          <p class="muted">No spam, just thoughtful notes on books, experiments, and the mindsets that keep curiosity alive. You'll also receive occasional behind-the-scenes essays from my graduate journey.</p>
+          <div class="eyebrow" style="margin-bottom:8px;">Stay in the loop</div>
+          <h2>Subscribe or reach out</h2>
+          <p class="muted">Want early access, a demo, or to bring this to your school? Drop your details and we'll reach back.</p>
         </div>
         <form>
-          <label>Email
-            <input type="email" placeholder="you@example.com" required />
-          </label>
           <label>Name
             <input type="text" placeholder="Your name" />
           </label>
-          <button class="btn-primary" type="submit" style="width:100%; max-width:220px;">Subscribe free</button>
+          <label>Email
+            <input type="email" placeholder="you@example.com" required />
+          </label>
+          <label>I'm interested in
+            <select>
+              <option>Early access</option>
+              <option>School partnership</option>
+              <option>Creator marketplace</option>
+              <option>Investor update</option>
+            </select>
+          </label>
+          <label>Tell us about your readers
+            <textarea placeholder="What challenges do they face? What languages do they need?"></textarea>
+          </label>
+          <button class="btn-primary" type="submit" style="width:100%; max-width:220px;">Join the waitlist</button>
         </form>
       </div>
     </section>
   </main>
 
   <footer>
-    Crafted with care by Haialt. Let's read, think, and build better together.
+    ReadFlow Studio — inclusive, multilingual reading for the next generation.
   </footer>
+
+  <script>
+    const insightsPanel = document.getElementById('insightsPanel');
+    const wordBtn = document.getElementById('wordBtn');
+    const translateBtn = document.getElementById('translateBtn');
+    const noteBtn = document.getElementById('noteBtn');
+    const trackStatus = document.getElementById('trackStatus');
+
+    wordBtn.addEventListener('click', () => {
+      insightsPanel.innerHTML = `
+        <div class="pill-stat">Helpful words</div>
+        <p><strong>narration</strong> — spoken reading of the text.</p>
+        <p><strong>shamisen</strong> — a Japanese string instrument used in folk music.</p>
+        <p><strong>background</strong> — the ambient environment behind the main focus.</p>
+      `;
+    });
+
+    translateBtn.addEventListener('click', () => {
+      insightsPanel.innerHTML = `
+        <div class="pill-stat">Translation (Japanese)</div>
+        <p class="muted">"雨が止むと、愛子は一週間持ち歩いていた本をついに開く。柔らかな三味線の音が流れる中、彼女はヘッドホンで朗読を聞きながら一文ずつ読む。"</p>
+      `;
+    });
+
+    noteBtn.addEventListener('click', () => {
+      insightsPanel.innerHTML = `
+        <div class="pill-stat">Saved note</div>
+        <p>"Audio helps me keep pace when text feels dense. Keep the background music gentle."</p>
+        <p class="muted">Added to your notebook and flashcards.</p>
+      `;
+    });
+
+    document.querySelectorAll('[data-track]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        trackStatus.textContent = `Now playing: ${btn.dataset.track}`;
+      });
+    });
+
+    document.querySelectorAll('.color-swatch').forEach((swatch) => {
+      swatch.addEventListener('click', () => {
+        document.querySelectorAll('.color-swatch').forEach((item) => item.classList.remove('active'));
+        swatch.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
