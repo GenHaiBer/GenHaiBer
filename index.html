@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ReadFlow Studio | Multisensory Reading & Language Companion</title>
+  <title>HaiGen | Interactive Multilingual Reading Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #07090f;
-      --panel: #0e1422;
-      --panel-2: #141c30;
-      --panel-3: #1a2340;
-      --text: #f8fafc;
-      --muted: #c3cad9;
-      --accent: #8ff1c6;
-      --accent-2: #7ea6ff;
-      --accent-3: #ffb089;
-      --border: rgba(255, 255, 255, 0.08);
+      --bg: #0b0f0a;
+      --panel: #11160f;
+      --panel-2: #1b2317;
+      --panel-3: #242f1e;
+      --text: #f8f6ef;
+      --muted: #d8d0bf;
+      --accent: #e8c67a;
+      --accent-2: #85c89f;
+      --accent-3: #d79673;
+      --border: rgba(248, 246, 239, 0.12);
       --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
     }
 
@@ -28,13 +28,44 @@
       font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 10% 10%, rgba(143, 241, 198, 0.1), transparent 40%),
-        radial-gradient(circle at 85% 12%, rgba(126, 166, 255, 0.12), transparent 35%),
-        radial-gradient(circle at 60% 90%, rgba(255, 176, 137, 0.1), transparent 40%),
+        radial-gradient(circle at 10% 15%, rgba(232, 198, 122, 0.16), transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(133, 200, 159, 0.14), transparent 38%),
+        radial-gradient(circle at 60% 90%, rgba(215, 150, 115, 0.12), transparent 40%),
         var(--bg);
       min-height: 100vh;
       line-height: 1.7;
       padding-bottom: 80px;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    body.theme-dawn {
+      --bg: #14110a;
+      --panel: #1f1a12;
+      --panel-2: #2b2416;
+      --panel-3: #3a311b;
+      --accent: #f0d195;
+      --accent-2: #b4d49d;
+      --accent-3: #dcb2a1;
+    }
+
+    body.theme-shade {
+      --bg: #0f1510;
+      --panel: #182018;
+      --panel-2: #202b20;
+      --panel-3: #2b392a;
+      --accent: #b5d6b6;
+      --accent-2: #7bbf9c;
+      --accent-3: #d2a179;
+    }
+
+    body.theme-night {
+      --bg: #090d12;
+      --panel: #0f151f;
+      --panel-2: #15202d;
+      --panel-3: #1c2a3b;
+      --accent: #b7c9f2;
+      --accent-2: #80c4d8;
+      --accent-3: #f0b396;
     }
 
     header {
@@ -47,16 +78,16 @@
       position: sticky;
       top: 0;
       backdrop-filter: blur(14px);
-      background: rgba(7, 9, 15, 0.85);
+      background: rgba(11, 15, 10, 0.85);
       border-bottom: 1px solid var(--border);
       z-index: 6;
     }
 
     .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.2px; }
     .logo {
-      width: 50px; height: 50px; border-radius: 16px; display: grid; place-items: center;
+      width: 52px; height: 52px; border-radius: 18px; display: grid; place-items: center;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #07101d; font-weight: 900; box-shadow: var(--shadow);
+      color: #1b1408; font-weight: 900; box-shadow: var(--shadow); font-size: 18px;
     }
     nav a { color: var(--muted); margin-left: 18px; text-decoration: none; font-weight: 700; }
     nav a:hover { color: var(--text); }
@@ -65,10 +96,10 @@
 
     .hero {
       margin-top: 28px;
-      padding: 40px;
-      background: linear-gradient(135deg, rgba(126, 166, 255, 0.1), rgba(143, 241, 198, 0.12));
+      padding: 42px;
+      background: linear-gradient(135deg, rgba(232, 198, 122, 0.12), rgba(133, 200, 159, 0.14));
       border: 1px solid var(--border);
-      border-radius: 30px;
+      border-radius: 32px;
       box-shadow: var(--shadow);
       display: grid;
       gap: 18px;
@@ -82,11 +113,11 @@
 
     .cta-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
     .btn-primary {
-      padding: 14px 16px;
+      padding: 14px 18px;
       border-radius: 12px;
       border: none;
       background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      color: #04101c;
+      color: #1b1408;
       font-weight: 800;
       cursor: pointer;
       box-shadow: var(--shadow);
@@ -105,7 +136,7 @@
     }
 
     .muted { color: var(--muted); }
-    .tag { display: inline-flex; gap: 8px; align-items: center; padding: 6px 10px; border-radius: 999px; background: rgba(143,241,198,0.12); color: var(--text); border: 1px solid rgba(143,241,198,0.3); font-weight: 700; font-size: 13px; }
+    .tag { display: inline-flex; gap: 8px; align-items: center; padding: 6px 10px; border-radius: 999px; background: rgba(232, 198, 122, 0.14); color: var(--text); border: 1px solid rgba(232, 198, 122, 0.3); font-weight: 700; font-size: 13px; }
 
     .studio {
       display: grid;
@@ -128,11 +159,11 @@
       padding: 18px;
       display: grid;
       gap: 8px;
-      background: rgba(7, 9, 15, 0.35);
+      background: rgba(12, 15, 10, 0.4);
     }
 
     .reader-text {
-      background: rgba(7, 9, 15, 0.4);
+      background: rgba(12, 15, 10, 0.5);
       border-radius: 14px;
       padding: 16px;
       border: 1px solid var(--border);
@@ -140,7 +171,7 @@
     }
 
     .highlight {
-      background: rgba(255, 176, 137, 0.22);
+      background: rgba(215, 150, 115, 0.26);
       padding: 2px 6px;
       border-radius: 8px;
     }
@@ -165,27 +196,25 @@
       gap: 10px;
     }
 
-    .pill-stat { padding: 6px 10px; border-radius: 10px; background: rgba(126, 166, 255, 0.14); color: var(--text); border: 1px solid rgba(126, 166, 255, 0.35); font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
+    .pill-stat { padding: 6px 10px; border-radius: 10px; background: rgba(133, 200, 159, 0.18); color: var(--text); border: 1px solid rgba(133, 200, 159, 0.35); font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
 
     .mode-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
     .mode-card { background: var(--panel-2); border: 1px solid var(--border); border-radius: 16px; padding: 16px; display: grid; gap: 8px; }
 
-    .color-toggle {
-      display: flex; gap: 8px; flex-wrap: wrap;
-    }
+    .color-toggle { display: flex; gap: 8px; flex-wrap: wrap; }
     .color-swatch {
-      width: 36px; height: 36px; border-radius: 12px; border: 2px solid transparent; cursor: pointer; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: #0b101a;
+      width: 36px; height: 36px; border-radius: 12px; border: 2px solid transparent; cursor: pointer; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: #1b1408;
     }
     .color-swatch.active { border-color: #fff; }
 
-    .music-panel { background: rgba(7, 9, 15, 0.4); border-radius: 14px; padding: 16px; border: 1px solid var(--border); display: grid; gap: 10px; }
+    .music-panel { background: rgba(12, 15, 10, 0.4); border-radius: 14px; padding: 16px; border: 1px solid var(--border); display: grid; gap: 10px; }
 
     .startup { display: grid; gap: 14px; }
-    .startup .card { background: linear-gradient(135deg, rgba(126, 166, 255, 0.14), rgba(143, 241, 198, 0.16)); }
+    .startup .card { background: linear-gradient(135deg, rgba(232, 198, 122, 0.16), rgba(133, 200, 159, 0.16)); }
 
     .subscribe {
       margin-top: 16px;
-      background: linear-gradient(135deg, rgba(126, 166, 255, 0.12), rgba(143, 241, 198, 0.16));
+      background: linear-gradient(135deg, rgba(232, 198, 122, 0.12), rgba(133, 200, 159, 0.16));
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 24px;
@@ -195,9 +224,16 @@
     }
     form { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
     label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; }
-    input, select, textarea { padding: 12px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(7,9,15,0.35); color: var(--text); font-family: inherit; }
+    input, select, textarea { padding: 12px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(12,15,10,0.45); color: var(--text); font-family: inherit; }
     input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent-2); }
     textarea { min-height: 110px; resize: vertical; }
+
+    .theme-switcher { display: flex; gap: 8px; flex-wrap: wrap; }
+    .theme-btn { padding: 10px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); font-weight: 700; cursor: pointer; }
+    .theme-btn.active { background: var(--accent); color: #1b1408; }
+
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .summary-card { background: var(--panel-2); border-radius: 16px; border: 1px solid var(--border); padding: 16px; }
 
     footer { max-width: 1200px; margin: 30px auto 0; padding: 0 24px 40px; color: var(--muted); text-align: center; }
 
@@ -213,65 +249,65 @@
     }
   </style>
 </head>
-<body>
+<body class="theme-dawn">
   <header>
     <div class="brand">
-      <div class="logo">RF</div>
+      <div class="logo">HG</div>
       <div>
-        <div style="font-weight:900;">ReadFlow Studio</div>
-        <small class="muted">Multisensory reading for every language & learning style</small>
+        <div style="font-weight:900;">HaiGen</div>
+        <small class="muted">Interactive multilingual reading studio — savanna calm, creator precision</small>
       </div>
     </div>
     <nav>
       <a href="#vision">Vision</a>
       <a href="#studio">Studio</a>
       <a href="#modes">Modes</a>
-      <a href="#startup">Startup</a>
+      <a href="#launch">Launch</a>
       <a href="#subscribe">Subscribe</a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="vision">
-      <div class="eyebrow">Accessible reading • Audio focus • Language bridge</div>
-      <h1>A reading experience for people who struggle with text — with instant translations, calming soundscapes, and smart notes.</h1>
+      <div class="eyebrow">Multilingual reading • Ambient focus • Adaptive design</div>
+      <h1>HaiGen makes reading feel cinematic: tap, translate, listen, and learn in any language.</h1>
       <p class="lead">
-        ReadFlow Studio turns any PDF or book into a guided reading space. Readers can hear the text while reading, tap to reveal three helpful words, capture beautiful notes, and switch to scientifically supported color modes that reduce eye strain. Built for English plus every language your community needs.
+        HaiGen is a creative reading playground where stories shift to the reader's language, pace, and mood. Friends can open a shared room, hear narration, save notes, and see vocabulary support appear in real time — wrapped in a savanna-inspired palette that stays calm and beautiful.
       </p>
       <div class="cta-row">
-        <button class="btn-primary" type="button">Start a free reading room</button>
-        <a class="btn-ghost" href="#studio">Explore the interactive demo</a>
-        <div class="tag">Designed for dyslexia-friendly, focus-first reading</div>
+        <button class="btn-primary" type="button">Create a shared reading room</button>
+        <a class="btn-ghost" href="#studio">Try the interactive studio</a>
+        <div class="tag">Crafted like a premium product</div>
       </div>
     </section>
 
     <section>
       <div class="grid">
         <div class="card">
-          <h2>Your vision in one sentence</h2>
-          <p class="muted">"Let every reader drop in a book, instantly understand it in their language, and read it with sound, structure, and confidence."</p>
-          <div class="pill-stat">✓ Audio + visual sync</div>
+          <h2>The heart of HaiGen</h2>
+          <p class="muted">"Let every reader open any book, instantly understand it, and feel supported by audio, translation, and calm design."</p>
+          <div class="pill-stat">✓ Multi-language at a tap</div>
         </div>
         <div class="card">
-          <h2>What makes it different</h2>
+          <h2>Premium interaction</h2>
           <ul class="muted" style="display:grid; gap:8px; padding-left:18px;">
-            <li>Tap any paragraph to surface three context words.</li>
-            <li>Translate sentences on demand, not the whole page.</li>
-            <li>Keep notes that become flashcards and summaries.</li>
-            <li>Adjust background, font, and rhythm for focus.</li>
+            <li>Tap a line for smart vocabulary highlights.</li>
+            <li>Translate just the sentence you need.</li>
+            <li>Capture notes that become flashcards.</li>
+            <li>Switch mood themes to reduce fatigue.</li>
           </ul>
         </div>
         <div class="card">
-          <h2>Built for real people</h2>
-          <p class="muted">From dyslexia-friendly modes to multilingual audio, ReadFlow Studio is the safe reading space students, parents, and lifelong learners have always needed.</p>
-          <div class="pill-stat">Accessibility-first</div>
+          <h2>Made for your friends</h2>
+          <p class="muted">Create a shared reading room and let friends test translation, audio pacing, and the calm color modes together.</p>
+          <div class="pill-stat">Collaboration-ready</div>
         </div>
       </div>
     </section>
 
     <section id="studio">
       <h2>Interactive reading studio</h2>
-      <p class="muted" style="margin-bottom:12px;">Click around to see how a reader uploads a book, highlights a sentence, and gets three powerful words instantly.</p>
+      <p class="muted" style="margin-bottom:12px;">Click around to see how HaiGen handles language shifts, vocabulary boosts, and saved notes.</p>
       <div class="studio">
         <div class="reader-panel">
           <div class="drop-zone">
@@ -282,7 +318,7 @@
 
           <div class="reader-text" id="readerText">
             <p>
-              <span class="highlight">"When the rain stops,</span> Aiko finally opens the book she has been carrying all week. She reads one sentence at a time, hearing the narration through her headphones while soft shamisen music plays in the background."
+              <span class="highlight" id="highlightLead">"When the acacia shadows stretch,</span> the travelers pause to read under the wide sky, letting the story flow with the breeze."
             </p>
           </div>
 
@@ -301,17 +337,17 @@
         <div class="reader-panel">
           <div>
             <div class="pill-stat">Listening mode</div>
-            <p class="muted">Sync narration with text and keep calm music underneath. Readers can slow the voice, loop lines, or switch to their native language.</p>
+            <p class="muted">Sync narration with text and blend gentle savanna ambience. Readers can slow the voice, loop a line, or switch to a native language voice.</p>
           </div>
 
           <div class="music-panel">
             <strong>Ambient focus soundtrack</strong>
             <div class="tool-row">
-              <button class="tool-btn" type="button" data-track="Kyoto Rain">Kyoto Rain</button>
-              <button class="tool-btn" type="button" data-track="Ocean Waves">Ocean Waves</button>
-              <button class="tool-btn" type="button" data-track="Study Lo-Fi">Study Lo-Fi</button>
+              <button class="tool-btn" type="button" data-track="Savanna Breeze">Savanna Breeze</button>
+              <button class="tool-btn" type="button" data-track="River Glow">River Glow</button>
+              <button class="tool-btn" type="button" data-track="Golden Dusk">Golden Dusk</button>
             </div>
-            <div class="muted" id="trackStatus">Now playing: Kyoto Rain</div>
+            <div class="muted" id="trackStatus">Now playing: Savanna Breeze</div>
             <label>
               Narration speed
               <input type="range" min="0.75" max="1.5" step="0.05" value="1" />
@@ -322,23 +358,24 @@
             <div class="pill-stat">Language bridge</div>
             <label>
               Reading language
-              <select>
-                <option>English (US)</option>
-                <option>Arabic</option>
-                <option>French</option>
-                <option>Japanese</option>
-                <option>Somali</option>
-                <option>Spanish</option>
+              <select id="readingLanguage">
+                <option value="english">English (US)</option>
+                <option value="arabic">Arabic</option>
+                <option value="french">French</option>
+                <option value="japanese">Japanese</option>
+                <option value="somali">Somali</option>
+                <option value="spanish">Spanish</option>
               </select>
             </label>
             <label>
               Translation language
-              <select>
-                <option>Arabic</option>
-                <option>French</option>
-                <option>Japanese</option>
-                <option>Somali</option>
-                <option>Spanish</option>
+              <select id="translationLanguage">
+                <option value="arabic">Arabic</option>
+                <option value="french">French</option>
+                <option value="japanese">Japanese</option>
+                <option value="somali">Somali</option>
+                <option value="spanish">Spanish</option>
+                <option value="english">English</option>
               </select>
             </label>
           </div>
@@ -347,75 +384,75 @@
     </section>
 
     <section id="modes">
-      <h2>Scientifically supported reading modes</h2>
-      <p class="muted" style="margin-bottom:12px;">Readers switch to modes proven to reduce visual stress, boost focus, and help neurodivergent readers stay engaged.</p>
+      <h2>Reading modes inspired by the savanna</h2>
+      <p class="muted" style="margin-bottom:12px;">Switch the theme to match your energy. Each mode adjusts contrast, warmth, and focus.</p>
       <div class="mode-grid">
         <div class="mode-card">
-          <strong>Soft Contrast</strong>
-          <p class="muted">Warm background with lower contrast for gentle reading.</p>
+          <strong>Savanna Dawn</strong>
+          <p class="muted">Golden warmth and soft contrast for daytime reading.</p>
+          <button class="theme-btn" type="button" data-theme="theme-dawn">Activate Dawn</button>
+        </div>
+        <div class="mode-card">
+          <strong>Acacia Shade</strong>
+          <p class="muted">Green-tinted calm for focus-heavy study sessions.</p>
+          <button class="theme-btn" type="button" data-theme="theme-shade">Activate Shade</button>
+        </div>
+        <div class="mode-card">
+          <strong>Oasis Night</strong>
+          <p class="muted">Deep blues with soft highlights for late-night listening.</p>
+          <button class="theme-btn" type="button" data-theme="theme-night">Activate Night</button>
+        </div>
+        <div class="mode-card">
+          <strong>Reader detail controls</strong>
+          <p class="muted">Spacing, highlight, and line focus adapt with your mode.</p>
           <div class="color-toggle" data-mode="soft">
-            <div class="color-swatch" style="background:#f7f1e8;">Aa</div>
-            <div class="color-swatch" style="background:#fbe9f3;">Aa</div>
-            <div class="color-swatch" style="background:#eff6ff;">Aa</div>
+            <div class="color-swatch" style="background:#f3e1bf;">Aa</div>
+            <div class="color-swatch" style="background:#d9efe1;">Aa</div>
+            <div class="color-swatch" style="background:#d6e3f5;">Aa</div>
           </div>
-        </div>
-        <div class="mode-card">
-          <strong>Focus Spotlight</strong>
-          <p class="muted">Dim the page and keep only the current line bright.</p>
-          <div class="pill-stat">Line-by-line</div>
-        </div>
-        <div class="mode-card">
-          <strong>Dyslexia Assist</strong>
-          <p class="muted">Extra spacing, bolder letters, and steady rhythm cues.</p>
-          <div class="pill-stat">Eye-tracking friendly</div>
-        </div>
-        <div class="mode-card">
-          <strong>Night Listening</strong>
-          <p class="muted">Dark mode with low-brightness audio-only view.</p>
-          <div class="pill-stat">Sleep-safe</div>
         </div>
       </div>
     </section>
 
     <section>
       <div class="card">
-        <h2>Three pillars that make it a true startup</h2>
-        <div class="grid" style="margin-top:12px;">
-          <div class="card" style="background: var(--panel-2);">
-            <h3>1. Reader intelligence engine</h3>
-            <p class="muted">AI highlights the three most important words, explains them, and learns what the reader already knows.</p>
+        <h2>Friends-first interaction</h2>
+        <div class="summary-grid" style="margin-top:12px;">
+          <div class="summary-card">
+            <h3>Shared reading rooms</h3>
+            <p class="muted">Invite friends to the same book and see their notes, highlights, and translations in real time.</p>
           </div>
-          <div class="card" style="background: var(--panel-2);">
-            <h3>2. Multilingual audio layer</h3>
-            <p class="muted">Instant narration in any language with accent-friendly voices and adjustable pacing.</p>
+          <div class="summary-card">
+            <h3>Memory spark cards</h3>
+            <p class="muted">Every saved note becomes a flashcard for daily practice.</p>
           </div>
-          <div class="card" style="background: var(--panel-2);">
-            <h3>3. Creator marketplace (the Audible-sized idea)</h3>
-            <p class="muted">Let educators and translators sell "reading rooms" with synced audio, notes, and playlists — like Audible meets Notion for study guides.</p>
+          <div class="summary-card">
+            <h3>Focus rituals</h3>
+            <p class="muted">Pick a soundscape and a mode to keep the brain relaxed and engaged.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="startup" class="startup">
-      <h2>The next big idea to make it a startup</h2>
+    <section id="launch" class="startup">
+      <h2>Launch-ready product vision</h2>
       <div class="card">
-        <h3>Community-powered comprehension</h3>
+        <h3>HaiGen Circles</h3>
         <p class="muted">
-          Launch a "ReadFlow Circles" subscription: schools and communities subscribe for shared reading rooms, built-in translation support, and collaborative note spaces. Each circle unlocks verified tutors, multilingual voice packs, and curated playlists. This creates a recurring revenue engine with high retention and makes ReadFlow Studio the trusted platform for inclusive reading.
+          Offer schools, language clubs, and reading groups a shared multilingual library with built-in audio, translation, and group notes. Each circle unlocks verified guides, curated playlists, and premium design themes. This keeps friends coming back and turns HaiGen into the reading platform everyone recommends.
         </p>
-        <div class="pill-stat">B2B + B2C growth loop</div>
+        <div class="pill-stat">Community + subscription flywheel</div>
       </div>
     </section>
 
     <section>
       <div class="card">
-        <h2>Next steps to bring the vision to life</h2>
+        <h2>Next steps to ship HaiGen</h2>
         <ol class="muted" style="display:grid; gap:8px; padding-left:18px;">
-          <li>Validate with 10 readers who struggle with text, capture their biggest friction points.</li>
-          <li>Build the MVP: PDF upload, audio sync, and the three-word helper tool.</li>
-          <li>Launch a waitlist for schools, parents, and language learners.</li>
-          <li>Add the creator marketplace and premium focus modes.</li>
+          <li>Collect 10 test readers and map where they struggle most.</li>
+          <li>Build the MVP: file upload, reading room, translation, and saved notes.</li>
+          <li>Launch a shareable demo for friends to test together.</li>
+          <li>Grow into the creator marketplace and premium voice packs.</li>
         </ol>
       </div>
     </section>
@@ -423,9 +460,9 @@
     <section id="subscribe">
       <div class="subscribe">
         <div>
-          <div class="eyebrow" style="margin-bottom:8px;">Stay in the loop</div>
+          <div class="eyebrow" style="margin-bottom:8px;">Stay in the circle</div>
           <h2>Subscribe or reach out</h2>
-          <p class="muted">Want early access, a demo, or to bring this to your school? Drop your details and we'll reach back.</p>
+          <p class="muted">Want early access, a demo for your friends, or a school partnership? Drop your details and we'll reach back.</p>
         </div>
         <form>
           <label>Name
@@ -437,13 +474,13 @@
           <label>I'm interested in
             <select>
               <option>Early access</option>
+              <option>Reading room demo</option>
               <option>School partnership</option>
               <option>Creator marketplace</option>
-              <option>Investor update</option>
             </select>
           </label>
           <label>Tell us about your readers
-            <textarea placeholder="What challenges do they face? What languages do they need?"></textarea>
+            <textarea placeholder="What languages do they need? What challenges do they face?"></textarea>
           </label>
           <button class="btn-primary" type="submit" style="width:100%; max-width:220px;">Join the waitlist</button>
         </form>
@@ -452,7 +489,7 @@
   </main>
 
   <footer>
-    ReadFlow Studio — inclusive, multilingual reading for the next generation.
+    HaiGen — cinematic, inclusive reading for the next generation.
   </footer>
 
   <script>
@@ -461,28 +498,73 @@
     const translateBtn = document.getElementById('translateBtn');
     const noteBtn = document.getElementById('noteBtn');
     const trackStatus = document.getElementById('trackStatus');
+    const readingLanguage = document.getElementById('readingLanguage');
+    const translationLanguage = document.getElementById('translationLanguage');
+    const readerText = document.getElementById('readerText');
+    const highlightLead = document.getElementById('highlightLead');
+
+    const languageSamples = {
+      english: {
+        highlight: '"When the acacia shadows stretch,',
+        text: 'the travelers pause to read under the wide sky, letting the story flow with the breeze."',
+        translation: 'Translation (Spanish): "Cuando las sombras de las acacias se alargan, los viajeros se detienen a leer bajo el cielo abierto, dejando que la historia fluya con la brisa."',
+      },
+      arabic: {
+        highlight: '"عندما تمتد ظلال الأكاسيا،',
+        text: 'يتوقف المسافرون للقراءة تحت السماء الواسعة، ويتركون الحكاية تنساب مع النسيم."',
+        translation: 'Translation (English): "When the acacia shadows stretch, the travelers pause to read under the wide sky, letting the story flow with the breeze."',
+      },
+      french: {
+        highlight: '"Quand les ombres des acacias s’allongent,',
+        text: 'les voyageurs s’arrêtent pour lire sous le grand ciel, laissant l’histoire glisser avec la brise."',
+        translation: 'Translation (English): "When the acacia shadows stretch, the travelers pause to read under the wide sky, letting the story flow with the breeze."',
+      },
+      japanese: {
+        highlight: '"アカシアの影が伸びるころ、',
+        text: '旅人たちは広い空の下で読むために立ち止まり、物語を風に乗せて流す。"',
+        translation: 'Translation (English): "When the acacia shadows stretch, the travelers pause to read under the wide sky, letting the story flow with the breeze."',
+      },
+      somali: {
+        highlight: '"Marka hooska qudhaanjadu dheeraado,',
+        text: 'safarayaasha waxay joogsadaan si ay u akhriyaan hoosta cirka ballaaran, iyagoo sheekada la socodsiinaya dabaysha."',
+        translation: 'Translation (English): "When the acacia shadows stretch, the travelers pause to read under the wide sky, letting the story flow with the breeze."',
+      },
+      spanish: {
+        highlight: '"Cuando las sombras de las acacias se alargan,',
+        text: 'los viajeros se detienen a leer bajo el cielo abierto, dejando que la historia fluya con la brisa."',
+        translation: 'Translation (English): "When the acacia shadows stretch, the travelers pause to read under the wide sky, letting the story flow with the breeze."',
+      },
+    };
+
+    const updateReaderLanguage = () => {
+      const selection = languageSamples[readingLanguage.value];
+      if (!selection) return;
+      highlightLead.textContent = selection.highlight;
+      readerText.querySelector('p').childNodes[1].textContent = ` ${selection.text}`;
+    };
 
     wordBtn.addEventListener('click', () => {
       insightsPanel.innerHTML = `
         <div class="pill-stat">Helpful words</div>
+        <p><strong>acacia</strong> — a tree common across warm savannas.</p>
         <p><strong>narration</strong> — spoken reading of the text.</p>
-        <p><strong>shamisen</strong> — a Japanese string instrument used in folk music.</p>
-        <p><strong>background</strong> — the ambient environment behind the main focus.</p>
+        <p><strong>flow</strong> — the smooth, calm movement of a story.</p>
       `;
     });
 
     translateBtn.addEventListener('click', () => {
+      const selection = languageSamples[readingLanguage.value];
       insightsPanel.innerHTML = `
-        <div class="pill-stat">Translation (Japanese)</div>
-        <p class="muted">"雨が止むと、愛子は一週間持ち歩いていた本をついに開く。柔らかな三味線の音が流れる中、彼女はヘッドホンで朗読を聞きながら一文ずつ読む。"</p>
+        <div class="pill-stat">Translation</div>
+        <p class="muted">${selection ? selection.translation : ''}</p>
       `;
     });
 
     noteBtn.addEventListener('click', () => {
       insightsPanel.innerHTML = `
         <div class="pill-stat">Saved note</div>
-        <p>"Audio helps me keep pace when text feels dense. Keep the background music gentle."</p>
-        <p class="muted">Added to your notebook and flashcards.</p>
+        <p>"The calm palette keeps my eyes relaxed. I like the voice slower at night."</p>
+        <p class="muted">Added to your HaiGen notebook and flashcards.</p>
       `;
     });
 
@@ -498,6 +580,28 @@
         swatch.classList.add('active');
       });
     });
+
+    const themeButtons = document.querySelectorAll('[data-theme]');
+    themeButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.body.classList.remove('theme-dawn', 'theme-shade', 'theme-night');
+        document.body.classList.add(btn.dataset.theme);
+        themeButtons.forEach((item) => item.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    readingLanguage.addEventListener('change', updateReaderLanguage);
+    translationLanguage.addEventListener('change', () => {
+      const selection = languageSamples[readingLanguage.value];
+      if (!selection) return;
+      insightsPanel.innerHTML = `
+        <div class="pill-stat">Translation updated</div>
+        <p class="muted">${selection.translation}</p>
+      `;
+    });
+
+    updateReaderLanguage();
   </script>
 </body>
 </html>
