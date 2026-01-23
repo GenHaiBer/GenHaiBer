@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HaiGen | Interactive Multilingual Reading Studio</title>
+  <title>NatureFlow | Project & Exam Planning Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0b0f0a;
-      --panel: #11160f;
-      --panel-2: #1b2317;
-      --panel-3: #242f1e;
-      --text: #f8f6ef;
-      --muted: #d8d0bf;
-      --accent: #e8c67a;
-      --accent-2: #85c89f;
-      --accent-3: #d79673;
-      --border: rgba(248, 246, 239, 0.12);
-      --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+      --bg: #0c120d;
+      --panel: #121a13;
+      --panel-2: #182318;
+      --panel-3: #1f2c1f;
+      --text: #f6f4ee;
+      --muted: #d3d8c8;
+      --accent: #9bd3a6;
+      --accent-2: #f1d38b;
+      --accent-3: #8ccae0;
+      --accent-4: #f2a38c;
+      --border: rgba(246, 244, 238, 0.12);
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,68 +29,57 @@
       font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 10% 15%, rgba(232, 198, 122, 0.16), transparent 45%),
-        radial-gradient(circle at 85% 20%, rgba(133, 200, 159, 0.14), transparent 38%),
-        radial-gradient(circle at 60% 90%, rgba(215, 150, 115, 0.12), transparent 40%),
-        var(--bg);
+        radial-gradient(circle at 10% 15%, rgba(155, 211, 166, 0.16), transparent 45%),
+        radial-gradient(circle at 80% 10%, rgba(241, 211, 139, 0.18), transparent 35%),
+        radial-gradient(circle at 70% 85%, rgba(140, 202, 224, 0.16), transparent 40%),
+        #0b120e;
       min-height: 100vh;
-      line-height: 1.7;
+      line-height: 1.6;
       padding-bottom: 80px;
-      transition: background 0.4s ease, color 0.4s ease;
-    }
-
-    body.theme-dawn {
-      --bg: #14110a;
-      --panel: #1f1a12;
-      --panel-2: #2b2416;
-      --panel-3: #3a311b;
-      --accent: #f0d195;
-      --accent-2: #b4d49d;
-      --accent-3: #dcb2a1;
-    }
-
-    body.theme-shade {
-      --bg: #0f1510;
-      --panel: #182018;
-      --panel-2: #202b20;
-      --panel-3: #2b392a;
-      --accent: #b5d6b6;
-      --accent-2: #7bbf9c;
-      --accent-3: #d2a179;
-    }
-
-    body.theme-night {
-      --bg: #090d12;
-      --panel: #0f151f;
-      --panel-2: #15202d;
-      --panel-3: #1c2a3b;
-      --accent: #b7c9f2;
-      --accent-2: #80c4d8;
-      --accent-3: #f0b396;
     }
 
     header {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 22px 24px 12px;
+      padding: 22px 24px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
       backdrop-filter: blur(14px);
-      background: rgba(11, 15, 10, 0.85);
+      background: rgba(12, 18, 13, 0.9);
       border-bottom: 1px solid var(--border);
       z-index: 6;
     }
 
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.2px; }
-    .logo {
-      width: 52px; height: 52px; border-radius: 18px; display: grid; place-items: center;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #1b1408; font-weight: 900; box-shadow: var(--shadow); font-size: 18px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
     }
-    nav a { color: var(--muted); margin-left: 18px; text-decoration: none; font-weight: 700; }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #0d130e;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+      font-size: 18px;
+    }
+
+    nav a {
+      color: var(--muted);
+      margin-left: 18px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
     nav a:hover { color: var(--text); }
 
     main { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
@@ -97,7 +87,7 @@
     .hero {
       margin-top: 28px;
       padding: 42px;
-      background: linear-gradient(135deg, rgba(232, 198, 122, 0.12), rgba(133, 200, 159, 0.14));
+      background: linear-gradient(135deg, rgba(155, 211, 166, 0.18), rgba(241, 211, 139, 0.16));
       border: 1px solid var(--border);
       border-radius: 32px;
       box-shadow: var(--shadow);
@@ -105,28 +95,71 @@
       gap: 18px;
     }
 
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--muted); font-weight: 700; }
-    h1 { font-size: clamp(32px, 5vw, 54px); font-family: 'Playfair Display', serif; line-height: 1.2; }
-    h2 { font-size: clamp(24px, 3vw, 34px); margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+    }
+
     h3 { font-size: 20px; margin-bottom: 6px; }
+
     p.lead { color: var(--muted); max-width: 900px; font-size: 17px; }
 
-    .cta-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
+    .cta-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
     .btn-primary {
       padding: 14px 18px;
       border-radius: 12px;
       border: none;
       background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      color: #1b1408;
+      color: #0f140e;
       font-weight: 800;
       cursor: pointer;
       box-shadow: var(--shadow);
     }
-    .btn-ghost { padding: 14px 16px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,0.04); color: var(--text); font-weight: 700; text-decoration: none; }
+
+    .btn-ghost {
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+    }
 
     section { margin-top: 40px; }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
     .card {
       background: var(--panel);
       border: 1px solid var(--border);
@@ -136,15 +169,28 @@
     }
 
     .muted { color: var(--muted); }
-    .tag { display: inline-flex; gap: 8px; align-items: center; padding: 6px 10px; border-radius: 999px; background: rgba(232, 198, 122, 0.14); color: var(--text); border: 1px solid rgba(232, 198, 122, 0.3); font-weight: 700; font-size: 13px; }
 
-    .studio {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 18px;
+    .tag {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(155, 211, 166, 0.18);
+      color: var(--text);
+      border: 1px solid rgba(155, 211, 166, 0.3);
+      font-weight: 700;
+      font-size: 13px;
     }
 
-    .reader-panel {
+    .planner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
       background: var(--panel-2);
       border: 1px solid var(--border);
       border-radius: 20px;
@@ -153,92 +199,135 @@
       gap: 16px;
     }
 
-    .drop-zone {
-      border: 1px dashed rgba(255, 255, 255, 0.25);
-      border-radius: 16px;
-      padding: 18px;
+    form {
       display: grid;
-      gap: 8px;
-      background: rgba(12, 15, 10, 0.4);
+      gap: 12px;
     }
 
-    .reader-text {
-      background: rgba(12, 15, 10, 0.5);
-      border-radius: 14px;
-      padding: 16px;
-      border: 1px solid var(--border);
-      font-size: 16px;
-    }
-
-    .highlight {
-      background: rgba(215, 150, 115, 0.26);
-      padding: 2px 6px;
-      border-radius: 8px;
-    }
-
-    .tool-row { display: flex; flex-wrap: wrap; gap: 10px; }
-    .tool-btn {
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
       font-weight: 700;
-      cursor: pointer;
     }
 
-    .insights {
-      background: var(--panel-3);
-      border-radius: 16px;
-      padding: 16px;
+    input, select, textarea {
+      padding: 12px 12px;
+      border-radius: 12px;
       border: 1px solid var(--border);
+      background: rgba(12, 15, 10, 0.45);
+      color: var(--text);
+      font-family: inherit;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--accent);
+    }
+
+    .course-list {
       display: grid;
       gap: 10px;
     }
 
-    .pill-stat { padding: 6px 10px; border-radius: 10px; background: rgba(133, 200, 159, 0.18); color: var(--text); border: 1px solid rgba(133, 200, 159, 0.35); font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
-
-    .mode-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
-    .mode-card { background: var(--panel-2); border: 1px solid var(--border); border-radius: 16px; padding: 16px; display: grid; gap: 8px; }
-
-    .color-toggle { display: flex; gap: 8px; flex-wrap: wrap; }
-    .color-swatch {
-      width: 36px; height: 36px; border-radius: 12px; border: 2px solid transparent; cursor: pointer; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: #1b1408;
-    }
-    .color-swatch.active { border-color: #fff; }
-
-    .music-panel { background: rgba(12, 15, 10, 0.4); border-radius: 14px; padding: 16px; border: 1px solid var(--border); display: grid; gap: 10px; }
-
-    .startup { display: grid; gap: 14px; }
-    .startup .card { background: linear-gradient(135deg, rgba(232, 198, 122, 0.16), rgba(133, 200, 159, 0.16)); }
-
-    .subscribe {
-      margin-top: 16px;
-      background: linear-gradient(135deg, rgba(232, 198, 122, 0.12), rgba(133, 200, 159, 0.16));
+    .course-item {
+      padding: 12px 14px;
+      border-radius: 14px;
       border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 24px;
-      box-shadow: var(--shadow);
+      background: rgba(12, 15, 10, 0.4);
       display: grid;
-      gap: 14px;
+      gap: 6px;
     }
-    form { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
-    label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; }
-    input, select, textarea { padding: 12px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(12,15,10,0.45); color: var(--text); font-family: inherit; }
-    input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent-2); }
-    textarea { min-height: 110px; resize: vertical; }
 
-    .theme-switcher { display: flex; gap: 8px; flex-wrap: wrap; }
-    .theme-btn { padding: 10px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); font-weight: 700; cursor: pointer; }
-    .theme-btn.active { background: var(--accent); color: #1b1408; }
+    .pill-stat {
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: rgba(241, 211, 139, 0.2);
+      color: var(--text);
+      border: 1px solid rgba(241, 211, 139, 0.35);
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
-    .summary-card { background: var(--panel-2); border-radius: 16px; border: 1px solid var(--border); padding: 16px; }
+    .chart-panel {
+      background: var(--panel-3);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+    }
 
-    footer { max-width: 1200px; margin: 30px auto 0; padding: 0 24px 40px; color: var(--muted); text-align: center; }
+    .gantt {
+      display: grid;
+      gap: 10px;
+    }
+
+    .gantt-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .gantt-bar {
+      position: relative;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .gantt-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 12px rgba(155, 211, 166, 0.35);
+    }
+
+    .timeline-scale {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .pert-wrapper {
+      background: rgba(12, 15, 10, 0.35);
+      border-radius: 16px;
+      padding: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .summary-card {
+      background: rgba(12, 15, 10, 0.4);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    footer {
+      max-width: 1200px;
+      margin: 30px auto 0;
+      padding: 0 24px 40px;
+      color: var(--muted);
+      text-align: center;
+    }
 
     @media (max-width: 960px) {
-      .studio { grid-template-columns: 1fr; }
+      .planner { grid-template-columns: 1fr; }
+      .gantt-row { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 720px) {
@@ -249,359 +338,455 @@
     }
   </style>
 </head>
-<body class="theme-dawn">
+<body>
   <header>
     <div class="brand">
-      <div class="logo">HG</div>
+      <div class="logo">NF</div>
       <div>
-        <div style="font-weight:900;">HaiGen</div>
-        <small class="muted">Interactive multilingual reading studio — savanna calm, creator precision</small>
+        <div style="font-weight:900;">NatureFlow</div>
+        <small class="muted">Nature-toned project planning for finals, exams, and capstones.</small>
       </div>
     </div>
     <nav>
-      <a href="#vision">Vision</a>
-      <a href="#studio">Studio</a>
-      <a href="#modes">Modes</a>
-      <a href="#launch">Launch</a>
-      <a href="#subscribe">Subscribe</a>
+      <a href="#planner">Planner</a>
+      <a href="#charts">Charts</a>
+      <a href="#insights">Insights</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero" id="vision">
-      <div class="eyebrow">Multilingual reading • Ambient focus • Adaptive design</div>
-      <h1>HaiGen makes reading feel cinematic: tap, translate, listen, and learn in any language.</h1>
+    <section class="hero">
+      <div class="eyebrow">Google-style planning • Nature palette • Professional output</div>
+      <h1>Design your study calendar, lock exam dates, and visualize every course with elegant Gantt &amp; PERT diagrams.</h1>
       <p class="lead">
-        HaiGen is a creative reading playground where stories shift to the reader's language, pace, and mood. Friends can open a shared room, hear narration, save notes, and see vocabulary support appear in real time — wrapped in a savanna-inspired palette that stays calm and beautiful.
+        NatureFlow builds a calm, beautifully colored plan that keeps every course on track. Set at least 100 hours per course,
+        add multiple projects, and automatically generate a professional timeline with dependencies so you finish your final project on time.
       </p>
       <div class="cta-row">
-        <button class="btn-primary" type="button">Create a shared reading room</button>
-        <a class="btn-ghost" href="#studio">Try the interactive studio</a>
-        <div class="tag">Crafted like a premium product</div>
+        <button class="btn-primary" type="button" id="generateBtn">Generate my plan</button>
+        <a class="btn-ghost" href="#planner">Customize projects</a>
+        <div class="tag">Exam-ready scheduling</div>
       </div>
     </section>
 
-    <section>
-      <div class="grid">
-        <div class="card">
-          <h2>The heart of HaiGen</h2>
-          <p class="muted">"Let every reader open any book, instantly understand it, and feel supported by audio, translation, and calm design."</p>
-          <div class="pill-stat">✓ Multi-language at a tap</div>
-        </div>
-        <div class="card">
-          <h2>Premium interaction</h2>
-          <ul class="muted" style="display:grid; gap:8px; padding-left:18px;">
-            <li>Tap a line for smart vocabulary highlights.</li>
-            <li>Translate just the sentence you need.</li>
-            <li>Capture notes that become flashcards.</li>
-            <li>Switch mood themes to reduce fatigue.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Made for your friends</h2>
-          <p class="muted">Create a shared reading room and let friends test translation, audio pacing, and the calm color modes together.</p>
-          <div class="pill-stat">Collaboration-ready</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="studio">
-      <h2>Interactive reading studio</h2>
-      <p class="muted" style="margin-bottom:12px;">Click around to see how HaiGen handles language shifts, vocabulary boosts, and saved notes.</p>
-      <div class="studio">
-        <div class="reader-panel">
-          <div class="drop-zone">
-            <strong>Upload a PDF or eBook</strong>
-            <span class="muted">Drop your file here or browse from your device.</span>
-            <input type="file" accept=".pdf,.epub" aria-label="Upload a book" />
-          </div>
-
-          <div class="reader-text" id="readerText">
-            <p>
-              <span class="highlight" id="highlightLead">"When the acacia shadows stretch,</span> the travelers pause to read under the wide sky, letting the story flow with the breeze."
-            </p>
-          </div>
-
-          <div class="tool-row">
-            <button class="tool-btn" type="button" id="wordBtn">Show 3 helpful words</button>
-            <button class="tool-btn" type="button" id="translateBtn">Translate sentence</button>
-            <button class="tool-btn" type="button" id="noteBtn">Save note</button>
-          </div>
-
-          <div class="insights" id="insightsPanel">
-            <div class="pill-stat">Live insights</div>
-            <p class="muted">Tap a tool to see contextual vocabulary, translations, and saved notes appear here.</p>
-          </div>
-        </div>
-
-        <div class="reader-panel">
-          <div>
-            <div class="pill-stat">Listening mode</div>
-            <p class="muted">Sync narration with text and blend gentle savanna ambience. Readers can slow the voice, loop a line, or switch to a native language voice.</p>
-          </div>
-
-          <div class="music-panel">
-            <strong>Ambient focus soundtrack</strong>
-            <div class="tool-row">
-              <button class="tool-btn" type="button" data-track="Savanna Breeze">Savanna Breeze</button>
-              <button class="tool-btn" type="button" data-track="River Glow">River Glow</button>
-              <button class="tool-btn" type="button" data-track="Golden Dusk">Golden Dusk</button>
+    <section id="planner" class="grid">
+      <div class="card">
+        <h2>Projects &amp; courses</h2>
+        <p class="muted">Create multiple projects, add courses, and set exam dates to keep everything aligned.</p>
+        <div class="panel">
+          <label>Active project
+            <div style="display:flex; gap:10px;">
+              <select id="projectSelect" style="flex:1;"></select>
+              <button class="btn-primary" type="button" id="addProjectBtn">+ Project</button>
             </div>
-            <div class="muted" id="trackStatus">Now playing: Savanna Breeze</div>
-            <label>
-              Narration speed
-              <input type="range" min="0.75" max="1.5" step="0.05" value="1" />
-            </label>
-          </div>
-
-          <div class="insights">
-            <div class="pill-stat">Language bridge</div>
-            <label>
-              Reading language
-              <select id="readingLanguage">
-                <option value="english">English (US)</option>
-                <option value="arabic">Arabic</option>
-                <option value="french">French</option>
-                <option value="japanese">Japanese</option>
-                <option value="somali">Somali</option>
-                <option value="spanish">Spanish</option>
-              </select>
-            </label>
-            <label>
-              Translation language
-              <select id="translationLanguage">
-                <option value="arabic">Arabic</option>
-                <option value="french">French</option>
-                <option value="japanese">Japanese</option>
-                <option value="somali">Somali</option>
-                <option value="spanish">Spanish</option>
-                <option value="english">English</option>
-              </select>
-            </label>
-          </div>
+          </label>
+          <label>Project name
+            <input type="text" id="projectName" placeholder="Final Semester Sprint" />
+          </label>
+          <button class="btn-ghost" type="button" id="saveProjectBtn">Save project name</button>
         </div>
       </div>
-    </section>
 
-    <section id="modes">
-      <h2>Reading modes inspired by the savanna</h2>
-      <p class="muted" style="margin-bottom:12px;">Switch the theme to match your energy. Each mode adjusts contrast, warmth, and focus.</p>
-      <div class="mode-grid">
-        <div class="mode-card">
-          <strong>Savanna Dawn</strong>
-          <p class="muted">Golden warmth and soft contrast for daytime reading.</p>
-          <button class="theme-btn" type="button" data-theme="theme-dawn">Activate Dawn</button>
-        </div>
-        <div class="mode-card">
-          <strong>Acacia Shade</strong>
-          <p class="muted">Green-tinted calm for focus-heavy study sessions.</p>
-          <button class="theme-btn" type="button" data-theme="theme-shade">Activate Shade</button>
-        </div>
-        <div class="mode-card">
-          <strong>Oasis Night</strong>
-          <p class="muted">Deep blues with soft highlights for late-night listening.</p>
-          <button class="theme-btn" type="button" data-theme="theme-night">Activate Night</button>
-        </div>
-        <div class="mode-card">
-          <strong>Reader detail controls</strong>
-          <p class="muted">Spacing, highlight, and line focus adapt with your mode.</p>
-          <div class="color-toggle" data-mode="soft">
-            <div class="color-swatch" style="background:#f3e1bf;">Aa</div>
-            <div class="color-swatch" style="background:#d9efe1;">Aa</div>
-            <div class="color-swatch" style="background:#d6e3f5;">Aa</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
       <div class="card">
-        <h2>Friends-first interaction</h2>
-        <div class="summary-grid" style="margin-top:12px;">
-          <div class="summary-card">
-            <h3>Shared reading rooms</h3>
-            <p class="muted">Invite friends to the same book and see their notes, highlights, and translations in real time.</p>
-          </div>
-          <div class="summary-card">
-            <h3>Memory spark cards</h3>
-            <p class="muted">Every saved note becomes a flashcard for daily practice.</p>
-          </div>
-          <div class="summary-card">
-            <h3>Focus rituals</h3>
-            <p class="muted">Pick a soundscape and a mode to keep the brain relaxed and engaged.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="launch" class="startup">
-      <h2>Launch-ready product vision</h2>
-      <div class="card">
-        <h3>HaiGen Circles</h3>
-        <p class="muted">
-          Offer schools, language clubs, and reading groups a shared multilingual library with built-in audio, translation, and group notes. Each circle unlocks verified guides, curated playlists, and premium design themes. This keeps friends coming back and turns HaiGen into the reading platform everyone recommends.
-        </p>
-        <div class="pill-stat">Community + subscription flywheel</div>
-      </div>
-    </section>
-
-    <section>
-      <div class="card">
-        <h2>Next steps to ship HaiGen</h2>
-        <ol class="muted" style="display:grid; gap:8px; padding-left:18px;">
-          <li>Collect 10 test readers and map where they struggle most.</li>
-          <li>Build the MVP: file upload, reading room, translation, and saved notes.</li>
-          <li>Launch a shareable demo for friends to test together.</li>
-          <li>Grow into the creator marketplace and premium voice packs.</li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="subscribe">
-      <div class="subscribe">
-        <div>
-          <div class="eyebrow" style="margin-bottom:8px;">Stay in the circle</div>
-          <h2>Subscribe or reach out</h2>
-          <p class="muted">Want early access, a demo for your friends, or a school partnership? Drop your details and we'll reach back.</p>
-        </div>
-        <form>
-          <label>Name
-            <input type="text" placeholder="Your name" />
+        <h2>Add a course</h2>
+        <p class="muted">Minimum 100 hours per course is enforced so you build deep mastery.</p>
+        <form id="courseForm" class="panel">
+          <label>Course name
+            <input type="text" id="courseName" placeholder="Data Structures" required />
           </label>
-          <label>Email
-            <input type="email" placeholder="you@example.com" required />
+          <label>Target study hours (min 100)
+            <input type="number" id="courseHours" min="100" value="100" required />
           </label>
-          <label>I'm interested in
-            <select>
-              <option>Early access</option>
-              <option>Reading room demo</option>
-              <option>School partnership</option>
-              <option>Creator marketplace</option>
-            </select>
+          <label>Course start date
+            <input type="date" id="courseStart" required />
           </label>
-          <label>Tell us about your readers
-            <textarea placeholder="What languages do they need? What challenges do they face?"></textarea>
+          <label>Exam date
+            <input type="date" id="courseExam" required />
           </label>
-          <button class="btn-primary" type="submit" style="width:100%; max-width:220px;">Join the waitlist</button>
+          <label>Prerequisites (optional)
+            <select id="coursePrereq" multiple size="3"></select>
+          </label>
+          <button class="btn-primary" type="submit">Add course</button>
         </form>
+      </div>
+    </section>
+
+    <section id="charts" class="planner">
+      <div class="panel">
+        <div>
+          <h2>Course lineup</h2>
+          <p class="muted">Every course gets a minimum of 100 hours and a defined exam date.</p>
+        </div>
+        <div class="course-list" id="courseList"></div>
+      </div>
+
+      <div class="panel">
+        <div>
+          <h2>Professional charts</h2>
+          <p class="muted">Beautiful Gantt timelines and PERT dependency maps update instantly.</p>
+        </div>
+        <div class="chart-panel">
+          <div>
+            <div class="pill-stat">Gantt chart</div>
+            <div class="gantt" id="ganttChart"></div>
+            <div class="timeline-scale" id="timelineScale"></div>
+          </div>
+          <div>
+            <div class="pill-stat">PERT diagram</div>
+            <div class="pert-wrapper">
+              <svg id="pertDiagram" viewBox="0 0 900 320" width="100%" height="320" role="img" aria-label="PERT diagram"></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="insights">
+      <div class="card">
+        <h2>Study insights</h2>
+        <div class="summary-grid">
+          <div class="summary-card">
+            <strong>Total study hours</strong>
+            <div class="pill-stat" id="totalHours">0 hrs</div>
+            <p class="muted">Ensures every course hits your 100+ hour goal.</p>
+          </div>
+          <div class="summary-card">
+            <strong>Weekly pace</strong>
+            <div class="pill-stat" id="weeklyPace">0 hrs/week</div>
+            <p class="muted">Balanced pace from the earliest start date to final exam.</p>
+          </div>
+          <div class="summary-card">
+            <strong>Final milestone</strong>
+            <div class="pill-stat" id="finalExam">--</div>
+            <p class="muted">Automatic timeline alignment for capstone readiness.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    HaiGen — cinematic, inclusive reading for the next generation.
+    NatureFlow — professional, calming planning for your strongest semester yet.
   </footer>
 
   <script>
-    const insightsPanel = document.getElementById('insightsPanel');
-    const wordBtn = document.getElementById('wordBtn');
-    const translateBtn = document.getElementById('translateBtn');
-    const noteBtn = document.getElementById('noteBtn');
-    const trackStatus = document.getElementById('trackStatus');
-    const readingLanguage = document.getElementById('readingLanguage');
-    const translationLanguage = document.getElementById('translationLanguage');
-    const readerText = document.getElementById('readerText');
-    const highlightLead = document.getElementById('highlightLead');
+    const projects = [
+      {
+        id: 'capstone',
+        name: 'Final Project Sprint',
+        courses: [
+          {
+            id: 'ds',
+            name: 'Data Structures',
+            hours: 120,
+            start: '2024-09-02',
+            exam: '2024-12-06',
+            prereq: [],
+          },
+          {
+            id: 'ai',
+            name: 'Applied AI',
+            hours: 140,
+            start: '2024-09-09',
+            exam: '2024-12-10',
+            prereq: ['ds'],
+          },
+          {
+            id: 'ux',
+            name: 'Product Design',
+            hours: 110,
+            start: '2024-09-12',
+            exam: '2024-12-03',
+            prereq: [],
+          },
+        ],
+      },
+    ];
 
-    const languageSamples = {
-      english: {
-        highlight: '"When the acacia shadows stretch,',
-        text: 'the travelers pause to read under the wide sky, letting the story flow with the breeze."',
-        translation: 'Translation (Spanish): "Cuando las sombras de las acacias se alargan, los viajeros se detienen a leer bajo el cielo abierto, dejando que la historia fluya con la brisa."',
-      },
-      arabic: {
-        highlight: '"عندما تمتد ظلال الأكاسيا،',
-        text: 'يتوقف المسافرون للقراءة تحت السماء الواسعة، ويتركون الحكاية تنساب مع النسيم."',
-        translation: 'Translation (English): "When the acacia shadows stretch, the travelers pause to read under the wide sky, letting the story flow with the breeze."',
-      },
-      french: {
-        highlight: '"Quand les ombres des acacias s’allongent,',
-        text: 'les voyageurs s’arrêtent pour lire sous le grand ciel, laissant l’histoire glisser avec la brise."',
-        translation: 'Translation (English): "When the acacia shadows stretch, the travelers pause to read under the wide sky, letting the story flow with the breeze."',
-      },
-      japanese: {
-        highlight: '"アカシアの影が伸びるころ、',
-        text: '旅人たちは広い空の下で読むために立ち止まり、物語を風に乗せて流す。"',
-        translation: 'Translation (English): "When the acacia shadows stretch, the travelers pause to read under the wide sky, letting the story flow with the breeze."',
-      },
-      somali: {
-        highlight: '"Marka hooska qudhaanjadu dheeraado,',
-        text: 'safarayaasha waxay joogsadaan si ay u akhriyaan hoosta cirka ballaaran, iyagoo sheekada la socodsiinaya dabaysha."',
-        translation: 'Translation (English): "When the acacia shadows stretch, the travelers pause to read under the wide sky, letting the story flow with the breeze."',
-      },
-      spanish: {
-        highlight: '"Cuando las sombras de las acacias se alargan,',
-        text: 'los viajeros se detienen a leer bajo el cielo abierto, dejando que la historia fluya con la brisa."',
-        translation: 'Translation (English): "When the acacia shadows stretch, the travelers pause to read under the wide sky, letting the story flow with the breeze."',
-      },
+    const colors = ['#9bd3a6', '#f1d38b', '#8ccae0', '#f2a38c', '#b5b0f5'];
+    let activeProjectIndex = 0;
+
+    const projectSelect = document.getElementById('projectSelect');
+    const projectName = document.getElementById('projectName');
+    const addProjectBtn = document.getElementById('addProjectBtn');
+    const saveProjectBtn = document.getElementById('saveProjectBtn');
+    const courseForm = document.getElementById('courseForm');
+    const courseName = document.getElementById('courseName');
+    const courseHours = document.getElementById('courseHours');
+    const courseStart = document.getElementById('courseStart');
+    const courseExam = document.getElementById('courseExam');
+    const coursePrereq = document.getElementById('coursePrereq');
+    const courseList = document.getElementById('courseList');
+    const ganttChart = document.getElementById('ganttChart');
+    const timelineScale = document.getElementById('timelineScale');
+    const pertDiagram = document.getElementById('pertDiagram');
+    const totalHours = document.getElementById('totalHours');
+    const weeklyPace = document.getElementById('weeklyPace');
+    const finalExam = document.getElementById('finalExam');
+    const generateBtn = document.getElementById('generateBtn');
+
+    const formatDate = (value) => {
+      if (!value) return '--';
+      return new Date(value).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
     };
 
-    const updateReaderLanguage = () => {
-      const selection = languageSamples[readingLanguage.value];
-      if (!selection) return;
-      highlightLead.textContent = selection.highlight;
-      readerText.querySelector('p').childNodes[1].textContent = ` ${selection.text}`;
+    const ensureMinimumHours = () => {
+      if (Number(courseHours.value) < 100) {
+        courseHours.value = 100;
+      }
     };
 
-    wordBtn.addEventListener('click', () => {
-      insightsPanel.innerHTML = `
-        <div class="pill-stat">Helpful words</div>
-        <p><strong>acacia</strong> — a tree common across warm savannas.</p>
-        <p><strong>narration</strong> — spoken reading of the text.</p>
-        <p><strong>flow</strong> — the smooth, calm movement of a story.</p>
-      `;
-    });
-
-    translateBtn.addEventListener('click', () => {
-      const selection = languageSamples[readingLanguage.value];
-      insightsPanel.innerHTML = `
-        <div class="pill-stat">Translation</div>
-        <p class="muted">${selection ? selection.translation : ''}</p>
-      `;
-    });
-
-    noteBtn.addEventListener('click', () => {
-      insightsPanel.innerHTML = `
-        <div class="pill-stat">Saved note</div>
-        <p>"The calm palette keeps my eyes relaxed. I like the voice slower at night."</p>
-        <p class="muted">Added to your HaiGen notebook and flashcards.</p>
-      `;
-    });
-
-    document.querySelectorAll('[data-track]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        trackStatus.textContent = `Now playing: ${btn.dataset.track}`;
+    const renderProjectSelect = () => {
+      projectSelect.innerHTML = '';
+      projects.forEach((project, index) => {
+        const option = document.createElement('option');
+        option.value = String(index);
+        option.textContent = project.name;
+        projectSelect.appendChild(option);
       });
-    });
+      projectSelect.value = String(activeProjectIndex);
+      projectName.value = projects[activeProjectIndex].name;
+    };
 
-    document.querySelectorAll('.color-swatch').forEach((swatch) => {
-      swatch.addEventListener('click', () => {
-        document.querySelectorAll('.color-swatch').forEach((item) => item.classList.remove('active'));
-        swatch.classList.add('active');
+    const renderPrereqOptions = () => {
+      coursePrereq.innerHTML = '';
+      projects[activeProjectIndex].courses.forEach((course) => {
+        const option = document.createElement('option');
+        option.value = course.id;
+        option.textContent = course.name;
+        coursePrereq.appendChild(option);
       });
-    });
+    };
 
-    const themeButtons = document.querySelectorAll('[data-theme]');
-    themeButtons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        document.body.classList.remove('theme-dawn', 'theme-shade', 'theme-night');
-        document.body.classList.add(btn.dataset.theme);
-        themeButtons.forEach((item) => item.classList.remove('active'));
-        btn.classList.add('active');
+    const renderCourseList = () => {
+      courseList.innerHTML = '';
+      projects[activeProjectIndex].courses.forEach((course) => {
+        const card = document.createElement('div');
+        card.className = 'course-item';
+        card.innerHTML = `
+          <strong>${course.name}</strong>
+          <div class="muted">${course.hours} hours • ${formatDate(course.start)} → ${formatDate(course.exam)}</div>
+          <div class="muted">Prereqs: ${course.prereq.length ? course.prereq.join(', ') : 'None'}</div>
+        `;
+        courseList.appendChild(card);
       });
+    };
+
+    const renderGantt = () => {
+      ganttChart.innerHTML = '';
+      timelineScale.innerHTML = '';
+      const courses = projects[activeProjectIndex].courses;
+      if (!courses.length) return;
+
+      const minDate = Math.min(...courses.map((course) => new Date(course.start).getTime()));
+      const maxDate = Math.max(...courses.map((course) => new Date(course.exam).getTime()));
+      const totalDays = Math.max(1, Math.ceil((maxDate - minDate) / (1000 * 60 * 60 * 24)));
+
+      courses.forEach((course, index) => {
+        const row = document.createElement('div');
+        row.className = 'gantt-row';
+        const label = document.createElement('div');
+        label.textContent = course.name;
+        label.className = 'muted';
+
+        const bar = document.createElement('div');
+        bar.className = 'gantt-bar';
+        const fill = document.createElement('div');
+        fill.className = 'gantt-fill';
+
+        const startOffset = Math.max(0, Math.ceil((new Date(course.start).getTime() - minDate) / (1000 * 60 * 60 * 24)));
+        const duration = Math.max(1, Math.ceil((new Date(course.exam).getTime() - new Date(course.start).getTime()) / (1000 * 60 * 60 * 24)));
+        fill.style.marginLeft = `${(startOffset / totalDays) * 100}%`;
+        fill.style.width = `${(duration / totalDays) * 100}%`;
+        fill.style.background = `linear-gradient(120deg, ${colors[index % colors.length]}, ${colors[(index + 1) % colors.length]})`;
+
+        bar.appendChild(fill);
+        row.appendChild(label);
+        row.appendChild(bar);
+        ganttChart.appendChild(row);
+      });
+
+      const scalePoints = 4;
+      for (let i = 0; i <= scalePoints; i += 1) {
+        const dayOffset = Math.round((totalDays / scalePoints) * i);
+        const labelDate = new Date(minDate + dayOffset * 24 * 60 * 60 * 1000);
+        const scaleLabel = document.createElement('div');
+        scaleLabel.textContent = formatDate(labelDate.toISOString());
+        timelineScale.appendChild(scaleLabel);
+      }
+    };
+
+    const renderPert = () => {
+      const svg = pertDiagram;
+      while (svg.firstChild) {
+        svg.removeChild(svg.firstChild);
+      }
+
+      const courses = projects[activeProjectIndex].courses;
+      if (!courses.length) return;
+
+      const courseMap = new Map(courses.map((course) => [course.id, course]));
+      const depthMap = new Map();
+
+      const computeDepth = (course) => {
+        if (depthMap.has(course.id)) return depthMap.get(course.id);
+        if (!course.prereq.length) {
+          depthMap.set(course.id, 0);
+          return 0;
+        }
+        const depth = Math.max(...course.prereq.map((id) => computeDepth(courseMap.get(id)))) + 1;
+        depthMap.set(course.id, depth);
+        return depth;
+      };
+
+      courses.forEach((course) => computeDepth(course));
+
+      const maxDepth = Math.max(...depthMap.values());
+      const columns = Array.from({ length: maxDepth + 1 }, () => []);
+      courses.forEach((course) => {
+        const depth = depthMap.get(course.id);
+        columns[depth].push(course);
+      });
+
+      const width = 900;
+      const height = 320;
+      const columnGap = width / Math.max(1, columns.length);
+
+      const nodePositions = new Map();
+
+      columns.forEach((column, colIndex) => {
+        const spacing = height / (column.length + 1);
+        column.forEach((course, rowIndex) => {
+          const x = columnGap * colIndex + 120;
+          const y = spacing * (rowIndex + 1);
+          nodePositions.set(course.id, { x, y });
+        });
+      });
+
+      courses.forEach((course) => {
+        course.prereq.forEach((prereqId) => {
+          const from = nodePositions.get(prereqId);
+          const to = nodePositions.get(course.id);
+          if (!from || !to) return;
+          const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          line.setAttribute('x1', String(from.x + 60));
+          line.setAttribute('y1', String(from.y));
+          line.setAttribute('x2', String(to.x - 60));
+          line.setAttribute('y2', String(to.y));
+          line.setAttribute('stroke', 'rgba(241, 211, 139, 0.8)');
+          line.setAttribute('stroke-width', '2');
+          svg.appendChild(line);
+        });
+      });
+
+      courses.forEach((course, index) => {
+        const position = nodePositions.get(course.id);
+        if (!position) return;
+        const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+
+        const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        rect.setAttribute('x', String(position.x - 80));
+        rect.setAttribute('y', String(position.y - 26));
+        rect.setAttribute('width', '160');
+        rect.setAttribute('height', '52');
+        rect.setAttribute('rx', '18');
+        rect.setAttribute('fill', 'rgba(12, 15, 10, 0.7)');
+        rect.setAttribute('stroke', colors[index % colors.length]);
+        rect.setAttribute('stroke-width', '2');
+
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', String(position.x));
+        text.setAttribute('y', String(position.y));
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('dominant-baseline', 'middle');
+        text.setAttribute('fill', '#f6f4ee');
+        text.setAttribute('font-size', '12');
+        text.textContent = course.name;
+
+        group.appendChild(rect);
+        group.appendChild(text);
+        svg.appendChild(group);
+      });
+    };
+
+    const updateInsights = () => {
+      const courses = projects[activeProjectIndex].courses;
+      if (!courses.length) {
+        totalHours.textContent = '0 hrs';
+        weeklyPace.textContent = '0 hrs/week';
+        finalExam.textContent = '--';
+        return;
+      }
+
+      const total = courses.reduce((sum, course) => sum + course.hours, 0);
+      totalHours.textContent = `${total} hrs`;
+
+      const minDate = Math.min(...courses.map((course) => new Date(course.start).getTime()));
+      const maxDate = Math.max(...courses.map((course) => new Date(course.exam).getTime()));
+      const weeks = Math.max(1, Math.ceil((maxDate - minDate) / (1000 * 60 * 60 * 24 * 7)));
+      weeklyPace.textContent = `${Math.ceil(total / weeks)} hrs/week`;
+      finalExam.textContent = formatDate(new Date(maxDate).toISOString());
+    };
+
+    const refreshAll = () => {
+      renderCourseList();
+      renderPrereqOptions();
+      renderGantt();
+      renderPert();
+      updateInsights();
+    };
+
+    addProjectBtn.addEventListener('click', () => {
+      const newProject = {
+        id: `project-${projects.length + 1}`,
+        name: `New Project ${projects.length + 1}`,
+        courses: [],
+      };
+      projects.push(newProject);
+      activeProjectIndex = projects.length - 1;
+      renderProjectSelect();
+      refreshAll();
     });
 
-    readingLanguage.addEventListener('change', updateReaderLanguage);
-    translationLanguage.addEventListener('change', () => {
-      const selection = languageSamples[readingLanguage.value];
-      if (!selection) return;
-      insightsPanel.innerHTML = `
-        <div class="pill-stat">Translation updated</div>
-        <p class="muted">${selection.translation}</p>
-      `;
+    saveProjectBtn.addEventListener('click', () => {
+      projects[activeProjectIndex].name = projectName.value.trim() || projects[activeProjectIndex].name;
+      renderProjectSelect();
     });
 
-    updateReaderLanguage();
+    projectSelect.addEventListener('change', (event) => {
+      activeProjectIndex = Number(event.target.value);
+      projectName.value = projects[activeProjectIndex].name;
+      refreshAll();
+    });
+
+    courseHours.addEventListener('change', ensureMinimumHours);
+
+    courseForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      ensureMinimumHours();
+
+      const prereqValues = Array.from(coursePrereq.selectedOptions).map((option) => option.value);
+      const newCourse = {
+        id: `${courseName.value.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}`,
+        name: courseName.value.trim(),
+        hours: Number(courseHours.value),
+        start: courseStart.value,
+        exam: courseExam.value,
+        prereq: prereqValues,
+      };
+
+      if (!newCourse.name) return;
+      projects[activeProjectIndex].courses.push(newCourse);
+
+      courseForm.reset();
+      courseHours.value = 100;
+      refreshAll();
+    });
+
+    generateBtn.addEventListener('click', refreshAll);
+
+    renderProjectSelect();
+    refreshAll();
   </script>
 </body>
 </html>
